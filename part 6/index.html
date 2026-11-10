@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="Part 06 — Heart Clues Treasure Hunt for Aditi Soni. A playful romantic trivia game celebrating love and memories.">
+  <title>Part 06 · Heart Clues Treasure Hunt 🗝️ | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif, Romantic Script & Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Postage Stamps, Hearts & Sparkles Canvas -->
+  <canvas id="treasure-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main Section Wrapper -->
+  <section class="treasure-hunt-section" id="heart-clues-hunt" aria-label="Part 06: Heart Clues Treasure Hunt">
+
+    <!-- Section Header Area -->
+    <header class="section-header">
+      <div class="chapter-pill">
+        <span class="pill-icon">🗝️</span>
+        <span>Part 06 · Heart Clues Treasure Hunt</span>
+      </div>
+
+      <h1 class="headline">
+        Every little clue <em>leads back to us.</em>
+      </h1>
+
+      <p class="subheadline">
+        Let’s see how well you know this love story, babyyygurlll.
+      </p>
+
+      <div class="header-flourish" aria-hidden="true">
+        <span class="flourish-compass">🧭</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-gem">💎</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-key">🗝️</span>
+      </div>
+    </header>
+
+    <!-- Treasure Hunt Stage Container -->
+    <div class="hunt-stage">
+
+      <!-- Living Ambient Floating Treasure Elements (Thrice the Animation) -->
+      <div class="hunt-ambient-elements" aria-hidden="true">
+        <div class="floating-ambient-item float-key-1">🗝️</div>
+        <div class="floating-ambient-item float-key-2">🗝️</div>
+        <div class="floating-ambient-item float-gem-1">💎</div>
+        <div class="floating-ambient-item float-env-1">💌</div>
+        <div class="floating-ambient-item float-env-2">💌</div>
+        <div class="floating-ambient-item float-heart-1">💖</div>
+      </div>
+
+      <!-- Birthday Postage Wax Seal (DOB: 16 Dec 2009) -->
+      <div class="vintage-wax-stamp" aria-hidden="true">
+        <div class="seal-inner">
+          <span class="seal-icon">💝</span>
+          <span class="seal-name">ADITI</span>
+          <span class="seal-date">16·12·2009</span>
+          <small class="seal-tag">12 CLUES</small>
+        </div>
+      </div>
+
+      <!-- Quest Dashboard & Progress Card -->
+      <div class="quest-dashboard-card" id="quest-dashboard">
+        <div class="dashboard-header">
+          <div class="dashboard-text-group">
+            <div class="dashboard-badges-row">
+              <span class="quest-badge">ROMANTIC SCAVENGER TRAIL</span>
+              <span class="anim-status-badge">✨ 3× Living Quest Animations Active</span>
+              <span class="status-badge" id="quest-status-badge">🗝️ Trail In Progress</span>
+            </div>
+            <h3 class="dashboard-title">Aditi & Spidy’s Heart Map</h3>
+          </div>
+
+          <div class="dashboard-count-badge">
+            <span id="clues-solved-count">0</span>
+            <small>/ 12 Clues Solved</small>
+          </div>
+        </div>
+
+        <!-- Progress Track Bar -->
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
+            <span class="progress-glow-head">🗝️</span>
+          </div>
+        </div>
+
+        <!-- 12 Trail Map Checkpoint Dots -->
+        <div class="trail-map-strip" id="trail-map-strip" aria-label="12 Treasure Trail Checkpoints">
+          <!-- 12 Checkpoint nodes dynamically populated by script.js -->
+        </div>
+
+        <!-- Stamp Collector Album Ribbon -->
+        <div class="stamp-album-container">
+          <div class="stamp-album-header">
+            <span class="album-title">💌 Collected Love Stamps Album:</span>
+            <span class="album-hint" id="album-hint">Answer correctly to stamp your passport!</span>
+          </div>
+          <div class="stamp-album-grid" id="stamp-album-grid" aria-label="Love Stamps Passport">
+            <!-- 12 Collectible Stamps rendered via script.js -->
+          </div>
+        </div>
+
+        <!-- Dashboard Quick Actions -->
+        <div class="dashboard-quick-actions">
+          <button class="hunt-btn action-hint" id="btn-show-hint" type="button" aria-label="Get a playful hint">
+            <span>💡</span>
+            <span>Spidy's Whisper Hint</span>
+          </button>
+          <button class="hunt-btn action-reset" id="btn-reset-hunt" type="button" aria-label="Reset treasure hunt">
+            <span>↺</span>
+            <span>Restart Hunt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Trivia Clue Card Deck Container -->
+      <div class="clue-deck-container" id="clue-deck-container">
+        
+        <!-- Pinned Scrapbook Love Note Card -->
+        <div class="scrapbook-clue-card" id="active-clue-card" role="region" aria-live="polite">
+          
+          <!-- Decorative Scrapbook Pins & Washi Tape -->
+          <div class="washi-tape-strip tape-left" aria-hidden="true"></div>
+          <div class="washi-tape-strip tape-right" aria-hidden="true"></div>
+          <div class="card-pin" aria-hidden="true">📌</div>
+
+          <!-- Card Header Info -->
+          <div class="card-top-bar">
+            <div class="clue-number-pill" id="card-clue-num">CLUE #01 OF 12</div>
+            <div class="clue-category-tag" id="card-clue-category">Inside Jokes & Drama</div>
+          </div>
+
+          <!-- Clue Prompt Question -->
+          <div class="clue-question-box">
+            <h2 class="clue-question-text" id="card-question-text">
+              Which one of us is slightly more dramatic whenever something minor goes wrong? 🎭
+            </h2>
+          </div>
+
+          <!-- Multiple Choice Options Grid -->
+          <div class="clue-options-grid" id="clue-options-grid" role="radiogroup" aria-label="Trivia Choices">
+            <!-- 4 Option Buttons populated dynamically -->
+          </div>
+
+          <!-- Real-Time Feedback Banner -->
+          <div class="clue-feedback-banner" id="clue-feedback-banner" aria-live="assertive">
+            <div class="feedback-icon" id="feedback-icon">✨</div>
+            <div class="feedback-content">
+              <strong class="feedback-title" id="feedback-title">Tap an answer to see if you remember!</strong>
+              <p class="feedback-message" id="feedback-message">Take a sweet guess, babyyygurlll. Every option has love in it!</p>
+            </div>
+          </div>
+
+          <!-- Bottom Card Navigation Controls -->
+          <div class="card-navigation-bar">
+            <button class="nav-btn prev-btn" id="btn-prev-clue" type="button" aria-label="Previous Clue">
+              <span>←</span>
+              <span>Previous Clue</span>
+            </button>
+
+            <div class="card-dots-indicator" id="card-dots-indicator" aria-hidden="true">
+              <!-- 12 micro dots -->
+            </div>
+
+            <button class="nav-btn next-btn" id="btn-next-clue" type="button" aria-label="Next Clue">
+              <span>Next Clue</span>
+              <span>→</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Sealed Keepsake Envelope at Bottom -->
+      <div class="keepsake-envelope" id="keepsake-envelope">
+        <div class="envelope-seal" aria-hidden="true">💌</div>
+        <div class="envelope-header">
+          <span class="envelope-badge">TREASURE TRAIL OF LOVE · FOR ADITI</span>
+          <h3>Every Clue Leads Home to You</h3>
+        </div>
+        <div class="envelope-message">
+          <p>“Aditi, whether we’re laughing over silly arguments, sharing 3 AM whispers, or getting lost in your smile, every piece of this puzzle proves you are the greatest treasure my heart could ever find.”</p>
+        </div>
+        <div class="envelope-signature">
+          <span>Forever your partner-in-crime,</span>
+          <strong>yours spidy 🕸️❤️</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Floating Audio Control Pill -->
+    <div class="floating-audio-dock">
+      <button class="sound-pill-btn" id="sound-btn" type="button" aria-label="Toggle game audio chimes">
+        <span class="sound-icon">🎵</span>
+        <span class="sound-text">Game Chimes ON</span>
+      </button>
+    </div>
+
+    <!-- Final Treasure Chest Reward Modal -->
+    <div class="treasure-modal-overlay" id="treasure-reward-modal" role="dialog" aria-modal="true" aria-labelledby="voucher-title">
+      <div class="treasure-voucher-card">
+        <button class="treasure-modal-close" id="treasure-modal-close" type="button" aria-label="Close treasure voucher">✕</button>
+        
+        <!-- Animated Treasure Chest Visual (Thrice the Animation) -->
+        <div class="treasure-chest-animation" aria-hidden="true">
+          <div class="chest-sunburst"></div>
+          <span class="chest-icon">🎁</span>
+          <div class="chest-halo"></div>
+        </div>
+
+        <div class="voucher-top-badge">👑 ALL 12 CLUES UNLOCKED · OFFICIAL LOVE VOUCHER</div>
+        
+        <h2 class="voucher-title" id="voucher-title">The Grand Treasure of Love</h2>
+        <p class="voucher-subtitle">Issued Exclusively to Aditi Soni · Sweet 17th Birthday</p>
+
+        <!-- Golden Certificate Card -->
+        <div class="voucher-golden-ticket">
+          <div class="ticket-header">
+            <span class="ticket-code">TICKET NO: ADITI-1612-FOREVER</span>
+            <span class="ticket-status">VERIFIED 100% MATCH</span>
+          </div>
+
+          <div class="ticket-body">
+            <h3 class="ticket-reward-main">“A Giant Virtual Hug & Infinite Cuddles”</h3>
+            <p class="ticket-reward-sub">Unlocked: The Best Gift of All — A Forever-Kind of Love.</p>
+            
+            <div class="ticket-terms">
+              <span>✓ Redeemable: Anytime, Anywhere, 24/7</span>
+              <span>✓ Validity: This Lifetime & All Rebirths</span>
+              <span>✓ Signed By: Spidy 🕸️❤️</span>
+            </div>
+          </div>
+
+          <div class="ticket-stamps-summary" id="voucher-stamps-summary">
+            <!-- 12 Miniature collected stamps -->
+          </div>
+        </div>
+
+        <!-- Interactive Claim Hug Button -->
+        <div class="voucher-actions">
+          <button class="claim-hug-btn" id="btn-claim-hug" type="button">
+            <span>🤗</span>
+            <span>Claim Your Virtual Hug & Kisses</span>
+            <span>❤️</span>
+          </button>
+          <a href="../part 7/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #dfa13d, #b8781e); color: #fff; font-weight: 800; font-size: 0.95rem; text-decoration: none; box-shadow: 0 4px 15px rgba(223, 161, 61, 0.4);">
+            📸 Continue to Part 07: Polaroid Memory Wall →
+          </a>
+        </div>
+
+        <div class="voucher-signature">
+          <p>“You solved my heart’s treasure hunt without missing a single beat.”</p>
+          <strong>yours spidy 🕸️❤️</strong>
+        </div>
+      </div>
+    </div>
+
+  
+    <!-- Proceed to Part 7 Flow Bridge -->
+    <div class="part-flow-bridge" style="text-align: center; margin: 34px auto 14px; max-width: 580px; padding: 22px; background: rgba(255, 255, 255, 0.92); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 20px; box-shadow: 0 8px 24px rgba(43, 14, 30, 0.08);">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 6px;">✓ CHAPTER 06 COMPLETE</div>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #2b0e1e; margin: 0 0 6px;">Secret Passphrase Solved: FOREVER ADITI 🔓✨</h3>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: #634356; margin: 0 0 16px; line-height: 1.45;">Take a warm stroll down memory lane. 8 hanging polaroids with our favorite moments await you.</p>
+      <a class="part-flow-btn" href="../part 7/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #dfa13d, #b8781e); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.92rem; box-shadow: 0 6px 20px rgba(223, 161, 61, 0.4);">
+        <span>Continue to Part 07: Polaroid Memory Wall 📸 ↷</span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
