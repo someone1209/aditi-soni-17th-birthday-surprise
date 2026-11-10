@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1a0826">
+  <meta name="description" content="Cupid's Arrow & Balloon Surprise - Part 02 of Aditi Soni's Romantic Birthday Surprise.">
+  <title>Cupid's Arrow & Balloon Surprise ✨🏹 | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif & Romantic Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Floating Night Sky Stars, Soft Nebula & Whimsical Sparkles -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="star-field" id="star-field"></div>
+    <span class="cloud-night cn-1">☁️</span>
+    <span class="cloud-night cn-2">☁️</span>
+    <span class="cloud-night cn-3">☁️</span>
+    <span class="float-sparkle sp-1">🌸</span>
+    <span class="float-sparkle sp-2">✨</span>
+    <span class="float-sparkle sp-3">💖</span>
+    <span class="float-sparkle sp-4">🌷</span>
+  </div>
+
+  <!-- Confetti Canvas Layer -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Main Archery Section -->
+  <section class="archery-section" id="cupids-archery" aria-label="Cupid's Arrow and Balloon Surprise">
+    
+    <!-- Section Header Area -->
+    <header class="section-header">
+      <div class="chapter-pill">
+        <span class="heart-sparkle">🏹</span>
+        <span>Part 02 · Cupid’s Arrow &amp; Balloon Surprise</span>
+      </div>
+
+      <h1 class="headline">
+        A little love, a little magic, and a <em>surprise</em> just for you.
+      </h1>
+
+      <p class="subheadline">
+        For my favorite girl, with the world’s cutest arrow shot.
+      </p>
+
+      <div class="instruction-badge" id="instruction-badge">
+        <span>👆</span>
+        <span>Touch or click the arrow, draw back, and release to make your wish fly! ✨</span>
+      </div>
+    </header>
+
+    <!-- Archery Arena Card (Velvet Night Glassmorphism) -->
+    <div class="archery-arena" id="archery-arena" role="region" aria-label="Interactive Archery Target Area">
+      
+      <!-- Washi Tape Corner Accents -->
+      <div class="washi-tape washi-top-left" aria-hidden="true"></div>
+      <div class="washi-tape washi-top-right" aria-hidden="true"></div>
+
+      <!-- Tension Power Meter -->
+      <div class="tension-meter" id="tension-meter">
+        <span>Tension:</span>
+        <div class="tension-bar-track">
+          <div class="tension-bar-fill" id="tension-fill"></div>
+        </div>
+      </div>
+
+      <!-- Interactive SVG Archery Layer -->
+      <svg class="archery-svg-layer" id="archery-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Luxury Rosewood & Deep Plum Shading -->
+          <linearGradient id="bowWoodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4a152d"/>
+            <stop offset="30%" stop-color="#8c2850"/>
+            <stop offset="60%" stop-color="#c94473"/>
+            <stop offset="85%" stop-color="#e86d94"/>
+            <stop offset="100%" stop-color="#591834"/>
+          </linearGradient>
+
+          <!-- 24K Champagne Gold Filigree Gradient -->
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="#b88328"/>
+            <stop offset="35%" stop-color="#fced9d"/>
+            <stop offset="70%" stop-color="#dfa13d"/>
+            <stop offset="100%" stop-color="#99681b"/>
+          </linearGradient>
+
+          <!-- Polished Golden Arrow Shaft -->
+          <linearGradient id="arrowShaftGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fff0c2"/>
+            <stop offset="40%" stop-color="#dfa13d"/>
+            <stop offset="100%" stop-color="#8c5810"/>
+          </linearGradient>
+
+          <!-- Ruby Heart Arrowhead Gradient -->
+          <radialGradient id="rubyHeadGrad" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#ffccd9"/>
+            <stop offset="30%" stop-color="#f43f72"/>
+            <stop offset="75%" stop-color="#cf1749"/>
+            <stop offset="100%" stop-color="#7a0827"/>
+          </radialGradient>
+
+          <!-- 3D Balloon Shading -->
+          <radialGradient id="balloonFill" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#ffccd9"/>
+            <stop offset="38%" stop-color="#f27092"/>
+            <stop offset="75%" stop-color="#d63162"/>
+            <stop offset="100%" stop-color="#a31641"/>
+          </radialGradient>
+
+          <linearGradient id="balloonHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+
+          <!-- Glow Filters -->
+          <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+
+          <filter id="rubyGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+        </defs>
+
+        <!-- Trajectory Predictive Guide Line (Marching Glowing Dashes) -->
+        <path id="trajectory-path" d="M 375,300 L 760,280" opacity="0"/>
+
+        <!-- THE ENHANCED CUPID'S RECURVE BOW (Curves Forward Toward Target) -->
+        <g class="bow-group" id="bow-group">
+          <!-- Main Stave Body -->
+          <path id="bow-stave-body" 
+                d="M 165,120 C 180,150 195,190 208,230 C 220,265 235,280 238,290 L 238,310 C 235,320 220,335 208,370 C 195,410 180,450 165,480" 
+                fill="none" stroke="url(#bowWoodGrad)" stroke-width="16" stroke-linecap="round"/>
+          
+          <!-- Inner Gold Filigree Inlay -->
+          <path id="bow-gold-trim" 
+                d="M 164,128 C 178,155 192,192 204,232 C 215,266 230,280 233,290 L 233,310 C 230,320 215,334 204,368 C 192,408 178,445 164,472" 
+                fill="none" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+
+          <!-- Golden Nock Finials at Top and Bottom Tips -->
+          <g id="bow-finial-top">
+            <path d="M 165,120 C 158,110 152,102 144,106 C 138,109 142,120 150,124 Z" fill="url(#goldGrad)"/>
+            <circle cx="165" cy="120" r="4" fill="#fced9d"/>
+          </g>
+          <g id="bow-finial-bottom">
+            <path d="M 165,480 C 158,490 152,498 144,494 C 138,491 142,480 150,476 Z" fill="url(#goldGrad)"/>
+            <circle cx="165" cy="480" r="4" fill="#fced9d"/>
+          </g>
+
+          <!-- Luxury Velvet Riser / Grip Wrap -->
+          <rect x="226" y="274" width="24" height="52" rx="7" fill="#2d0b17" stroke="url(#goldGrad)" stroke-width="2"/>
+          
+          <!-- Diamond Cross Stitching on Grip -->
+          <line x1="226" y1="284" x2="250" y2="294" stroke="#fcd34d" stroke-width="2" opacity="0.85"/>
+          <line x1="226" y1="294" x2="250" y2="284" stroke="#fcd34d" stroke-width="2" opacity="0.85"/>
+          <line x1="226" y1="304" x2="250" y2="314" stroke="#fcd34d" stroke-width="2" opacity="0.85"/>
+          <line x1="226" y1="314" x2="250" y2="304" stroke="#fcd34d" stroke-width="2" opacity="0.85"/>
+
+          <!-- Glowing Ruby Heart Gem in Bow Center -->
+          <path d="M 238,295 C 235,291 229,293 229,298 C 229,303 238,308 238,308 C 238,308 247,303 247,298 C 247,293 241,291 238,295 Z" 
+                fill="#ff1a53" filter="url(#rubyGlow)"/>
+        </g>
+
+        <!-- Dynamic Bowstring (Connects the two tips, stretches backward on drag) -->
+        <path class="bow-string-line" id="bow-string-path" d="M 165,120 L 165,480"/>
+
+        <!-- THE COMPLETE CUPID'S ARROW (Nocked on Bowstring, Points Forward) -->
+        <g class="arrow-group" id="arrow-group" transform="translate(165, 300)">
+          <!-- Golden Nock on Bowstring -->
+          <circle cx="0" cy="0" r="4.5" fill="url(#goldGrad)"/>
+
+          <!-- Arrow Fletching Feathers (Swan White & Blush Pink with Gold Trim) -->
+          <g transform="translate(6, 0)">
+            <path d="M 0,0 L 6,-14 L 38,-14 L 46,0 Z" fill="#ffffff" stroke="#fbcfe8" stroke-width="1"/>
+            <path d="M 28,-14 L 38,-14 L 46,0 L 36,0 Z" fill="url(#goldGrad)"/>
+            <path d="M 0,0 L 6,14 L 38,14 L 46,0 Z" fill="#ffffff" stroke="#fbcfe8" stroke-width="1"/>
+            <path d="M 28,14 L 38,14 L 46,0 L 36,0 Z" fill="url(#goldGrad)"/>
+            <rect x="0" y="-3" width="8" height="6" fill="#e84a78" rx="2"/>
+            <rect x="44" y="-3" width="6" height="6" fill="#e84a78" rx="2"/>
+          </g>
+
+          <!-- Polished Golden Arrow Shaft -->
+          <line x1="0" y1="0" x2="210" y2="0" stroke="url(#arrowShaftGrad)" stroke-width="5" stroke-linecap="round"/>
+
+          <!-- Arrow Ferrule Collar -->
+          <circle cx="210" cy="0" r="4" fill="url(#goldGrad)"/>
+
+          <!-- Ruby Heart Arrowhead -->
+          <g transform="translate(210, 0)">
+            <g transform="rotate(90)">
+              <path d="M 0,-5 Q -14,-18 -14,-6 Q -14,6 0,18 Q 14,6 14,-6 Q 14,-18 0,-5 Z" 
+                    fill="url(#rubyHeadGrad)" stroke="#ffe4ec" stroke-width="1.8" filter="url(#softGlow)"/>
+              <ellipse cx="-4" cy="-5" rx="4" ry="2.5" fill="#ffffff" opacity="0.85" transform="rotate(-30 -4 -5)"/>
+            </g>
+          </g>
+
+          <!-- Touch/Mouse Interaction Grab Zone -->
+          <circle cx="0" cy="0" r="45" fill="transparent" cursor="grab"/>
+        </g>
+      </svg>
+
+      <!-- Floating 3D Birthday Balloon Container -->
+      <div class="balloon-container" id="balloon-container" role="button" tabindex="0" 
+           aria-label="Birthday Balloon for Aditi. Pull back and shoot with Cupid's Arrow to pop!">
+        
+        <!-- Teasing Speech Tooltip when clicked directly -->
+        <div class="balloon-toast" id="balloon-toast" aria-live="polite">
+          Hey babyyy, no cheating! 😜 Pull back Cupid's arrow &amp; shoot me! 🏹
+        </div>
+
+        <svg class="balloon-svg" viewBox="0 0 170 220">
+          <!-- Main 3D Balloon Shape -->
+          <path d="M 85,8 C 35,8 8,48 10,105 C 12,150 48,185 85,202 C 122,185 158,150 160,105 C 162,48 135,8 85,8 Z" 
+                fill="url(#balloonFill)"/>
+          
+          <!-- Curved Specular 3D Reflection Highlight -->
+          <path d="M 32,45 C 20,68 18,98 24,120" 
+                fill="none" stroke="url(#balloonHighlight)" stroke-width="9" stroke-linecap="round"/>
+          <ellipse cx="52" cy="30" rx="8" ry="4" fill="#ffffff" opacity="0.75" transform="rotate(-30 52 30)"/>
+
+          <!-- Balloon Tie Knot -->
+          <path d="M 80,202 L 90,202 L 88,212 L 82,212 Z" fill="#a31641"/>
+
+          <!-- Elegant Gold & White Typography on Balloon -->
+          <text x="85" y="105" text-anchor="middle" fill="#fffdfa" font-family="'Dancing Script', cursive" font-size="22" font-weight="700">for Aditi</text>
+          <text x="85" y="130" text-anchor="middle" fill="#ffe4ec" font-family="'Playfair Display', serif" font-size="14" letter-spacing="1">birthday girl</text>
+          <text x="85" y="152" text-anchor="middle" fill="#ffd1dc" font-size="14">♡</text>
+        </svg>
+
+        <!-- Dangling Balloon Ribbon -->
+        <div class="balloon-string" aria-hidden="true"></div>
+
+        <!-- Dangling Golden Gift Box -->
+        <div class="gift-box" aria-hidden="true" title="A gift waiting inside!">
+          <div class="gift-ribbon-v"></div>
+          <div class="gift-ribbon-h"></div>
+          <span class="gift-bow">🎀</span>
+        </div>
+
+        <!-- Orbiting Sparkles & Stars -->
+        <div class="balloon-sparkles" aria-hidden="true">
+          <span class="orbit-star star-1">✨</span>
+          <span class="orbit-star star-2">⭐</span>
+          <span class="orbit-star star-3">🌸</span>
+        </div>
+      </div>
+
+      <!-- Celebration Reveal Banner Modal -->
+      <div class="reveal-modal" id="reveal-modal" role="dialog" aria-modal="true" aria-labelledby="reveal-title">
+        <span class="reveal-badge">🎉 Surprise Unlocked!</span>
+        <h2 class="reveal-title" id="reveal-title">
+          Surprise, Aditi! Happy Birthday my babyyygurlll ❤️
+        </h2>
+        <div class="reveal-note">
+          <p>You popped the balloon and unlocked all my love! May this year bring you every sweet, magical, and beautiful thing you deserve—and a million reasons to keep smiling.</p>
+        </div>
+        <div class="reveal-signature">
+          Yours spidy, always 🕸️❤️
+        </div>
+        <button class="btn-reset" id="btn-reset" type="button">
+          <span>✨</span>
+          <span>Shoot Another Love Wish</span>
+          <span>🏹</span>
+        </button>
+        <a class="btn-next-part" href="../part 3/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 12px 24px; border-radius: 999px; background: linear-gradient(135deg, #dfa13d, #b8781e); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(223, 161, 61, 0.4); transition: transform 0.2s;">
+          <span>🎂 Proceed to Part 3: 3D Birthday Cake →</span>
+        </a>
+      </div>
+
+      <!-- Sound Toggle Pill -->
+      <button class="sound-toggle-btn" id="sound-toggle-btn" type="button" aria-label="Toggle sound effects">
+        <span>🔊</span>
+        <span>Sound ON</span>
+      </button>
+
+    </div>
+  
+    <!-- Proceed to Part 3 Flow Bridge -->
+    <div class="part-flow-bridge" style="text-align: center; margin: 34px auto 14px; max-width: 580px; padding: 22px; background: rgba(255, 255, 255, 0.92); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 20px; box-shadow: 0 8px 24px rgba(43, 14, 30, 0.08);">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 6px;">✓ CHAPTER 02 COMPLETE</div>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #2b0e1e; margin: 0 0 6px;">Cupid's Aim is True! 🏹 Ready for Cake?</h3>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: #634356; margin: 0 0 16px; line-height: 1.45;">Every balloon popped with love. Come make a quiet wish and blow out the 17 glowing candles!</p>
+      <a class="part-flow-btn" href="../part 3/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #dfa13d, #b8781e); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.92rem; box-shadow: 0 6px 20px rgba(223, 161, 61, 0.4);">
+        <span>Continue to Part 03: 3D Birthday Cake 🎂 ↷</span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
