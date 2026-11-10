@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="Part 09 — Open When… Letters for Aditi Soni. Tender keepsake envelopes filled with love and comfort for every mood.">
+  <title>Part 09 · Open When… Letters 💌 | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif, Romantic Script & Clean Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Origami Letters, Rose Petals & Golden Sparkles Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main Section Wrapper -->
+  <section class="letters-section" id="open-when-section" aria-label="Part 09: Open When Letters">
+
+    <!-- Section Header Area -->
+    <header class="section-header">
+      <div class="chapter-pill">
+        <span class="pill-icon">💌</span>
+        <span>Part 09 · Open When… Letters</span>
+      </div>
+
+      <h1 class="headline">
+        A little note for <em>every moment.</em>
+      </h1>
+
+      <p class="subheadline">
+        Open when you need a smile, a hug, or a little courage. These letters are tucked inside forever, waiting to hold your hand whenever you need me most.
+      </p>
+
+      <div class="header-flourish" aria-hidden="true">
+        <span class="flourish-icon">✨</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-icon">📜</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-icon">💖</span>
+      </div>
+    </header>
+
+    <!-- Stage Container -->
+    <div class="stage-container">
+
+      <!-- Keepsake Letterbox Ribbon Tag (DOB: 16 Dec 2009) -->
+      <div class="letterbox-ribbon-tag" aria-hidden="true">
+        <div class="ribbon-left">
+          <span class="ribbon-icon">📬</span>
+          <div class="ribbon-text">
+            <span class="ribbon-title">ADITI’S PERSONAL LETTERBOX</span>
+            <span class="ribbon-sub">SWEET 17 · 16 DEC 2009 · WRITTEN WITH ALL MY HEART</span>
+          </div>
+        </div>
+        <div class="ribbon-divider"></div>
+        <div class="ribbon-badge">
+          <span>PAR AVION · LOVE ARCHIVE</span>
+        </div>
+      </div>
+
+      <!-- Tracker & Quick Controls Bar -->
+      <div class="tracker-card" id="tracker-card">
+        <div class="tracker-info-row">
+          <div class="tracker-title-group">
+            <div class="tracker-status-pill">
+              <span class="pulse-dot"></span>
+              <span>6 HANDCRAFTED KEEPSAKE ENVELOPES</span>
+            </div>
+            <h3 class="tracker-title">Aditi & Spidy’s Emotional Support Box</h3>
+          </div>
+
+          <div class="tracker-counter-badge">
+            <span id="opened-count">0</span>
+            <small>/ 6 Letters Unfolded</small>
+          </div>
+        </div>
+
+        <!-- Progress Bar Track -->
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="6" aria-label="Letters reading progress">
+          <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
+            <span class="progress-glow-head">💌</span>
+          </div>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="tracker-actions-row">
+          <button class="action-btn btn-open-all" id="btn-open-all" type="button" aria-label="Open all envelopes to read letters">
+            <span>✨</span>
+            <span>Open All Envelopes</span>
+          </button>
+          <button class="action-btn btn-close-all" id="btn-close-all" type="button" aria-label="Tuck all letters back into envelopes">
+            <span>📫</span>
+            <span>Tuck All Back In</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 6 Open When Envelopes Grid -->
+      <div class="envelopes-grid" id="envelopes-grid" role="region" aria-label="6 Open When Envelopes">
+        <!-- Rendered dynamically via JavaScript for clean, responsive state management -->
+      </div>
+
+      <!-- Bottom Sealed Keepsake Letterbox Certificate -->
+      <div class="keepsake-letterbox" id="keepsake-letterbox">
+        <div class="letterbox-seal" aria-hidden="true">
+          <span>💌</span>
+        </div>
+        <div class="letterbox-content">
+          <span class="letterbox-tag">FROM SPIDY'S HEART · LIFETIME PROMISE</span>
+          <h3 class="letterbox-title">I’ll Always Be In Your Quiet Moments</h3>
+          <p class="letterbox-body">
+            “No matter how busy life gets, Aditi, or how many miles stand between us on any given afternoon, you will never have to face a rough day alone. These words are woven into your life forever. Come back here anytime your heart needs grounding. I am always listening, always loving you.”
+          </p>
+          <div class="letterbox-sign-row">
+            <div class="letterbox-date">16 December 2009 · Eternal Sweet 17</div>
+            <div class="letterbox-signature">
+              <span>Always in your corner,</span>
+              <strong>yours spidy 🕸️❤️</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Floating Audio Control Dock -->
+    <div class="floating-audio-dock">
+      <button class="sound-pill-btn" id="sound-btn" type="button" aria-label="Toggle paper rustle and letter chime sound effects">
+        <span class="sound-icon">🎵</span>
+        <span class="sound-text">Sound Effects ON</span>
+      </button>
+    </div>
+
+    <!-- Full-Screen Letter Reading Modal View -->
+    <div class="letter-modal-overlay" id="letter-modal" role="dialog" aria-modal="true" aria-labelledby="modal-letter-title">
+      <div class="letter-modal-card">
+        <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close letter view">✕</button>
+        
+        <div class="letter-parchment-sheet">
+          <!-- Decorative Top Vintage Postage & Wax Seal Stamp -->
+          <div class="parchment-top-bar">
+            <div class="postage-tag">
+              <span class="postage-icon">🌸</span>
+              <div class="postage-meta">
+                <span class="postage-to">TO: ADITI SONI (MY BABYYYGURLLL)</span>
+                <span class="postage-date">DATE: 16 DEC 2009 · NO EXPIRATION</span>
+              </div>
+            </div>
+            <div class="parchment-wax-seal" id="modal-wax-seal">
+              <span>💖</span>
+            </div>
+          </div>
+
+          <!-- Letter Mood Header -->
+          <div class="letter-mood-badge" id="modal-mood-badge">
+            OPEN WHEN YOU NEED A SMILE
+          </div>
+
+          <h2 class="letter-main-title" id="modal-letter-title">
+            Open when you need a smile.
+          </h2>
+
+          <!-- Handwritten Letter Body -->
+          <div class="letter-handwritten-body" id="modal-letter-body">
+            <!-- Dynamic letter text injected here -->
+          </div>
+
+          <!-- Postscript Note -->
+          <div class="letter-postscript-box" id="modal-letter-ps">
+            <!-- Dynamic P.S. note -->
+          </div>
+
+          <!-- Letter Signoff -->
+          <div class="letter-signoff-row">
+            <span class="signoff-note">Written with infinite love & care,</span>
+            <strong class="signoff-author">yours spidy 🕸️❤️</strong>
+          </div>
+        </div>
+
+        <!-- Navigation Footer Inside Modal -->
+        <div class="modal-nav-footer">
+          <button class="modal-nav-btn" id="modal-prev-btn" type="button" aria-label="Previous letter">
+            <span>← Previous Letter</span>
+          </button>
+          <span class="modal-page-counter" id="modal-page-counter">Letter 1 of 6</span>
+          <button class="modal-nav-btn" id="modal-next-btn" type="button" aria-label="Next letter">
+            <span>Next Letter →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  
+    <!-- Proceed to Part 10 Flow Bridge -->
+    <div class="part-flow-bridge" style="text-align: center; margin: 34px auto 14px; max-width: 580px; padding: 22px; background: rgba(255, 255, 255, 0.92); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 20px; box-shadow: 0 8px 24px rgba(43, 14, 30, 0.08);">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 6px;">✓ CHAPTER 09 COMPLETE</div>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #2b0e1e; margin: 0 0 6px;">One Last Thing, My Favorite Girl... 💫</h3>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: #634356; margin: 0 0 16px; line-height: 1.45;">This part is for the quiet moment after all the confetti. A 5-page realistic handwritten journal.</p>
+      <a class="part-flow-btn" href="../part 10/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #e84a78 0%, #b82352 60%, #dfa13d 100%); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.92rem; box-shadow: 0 6px 20px rgba(232, 74, 120, 0.4);">
+        <span>Open the Grand Finale: 5-Page Love Letter 📖 ↷</span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
