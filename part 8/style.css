@@ -1,0 +1,1059 @@
+/* ==========================================================================
+   PART 08 — SCRATCH-OFF LOVE COUPONS (FOR ADITI SONI)
+   Palette: Champagne Gold, Blush Rose, Cream Parchment, Velvet Plum
+   ========================================================================== */
+
+:root {
+  --champagne-gold: #dfa13d;
+  --gold-light: #fef0be;
+  --gold-shimmer: #fff8dc;
+  --gold-dark: #9c6515;
+  --gold-metallic: linear-gradient(135deg, #d49a37 0%, #fde08b 25%, #dfa13d 50%, #fff2b2 75%, #b3781e 100%);
+  --rose-gold-metallic: linear-gradient(135deg, #df7888 0%, #fed0d9 28%, #e88b99 50%, #fff0f3 72%, #b75364 100%);
+  
+  --blush-pink: #fff0f5;
+  --blush-card: #fff6f8;
+  --blush-soft: #fedbe5;
+  --rose-bloom: #e84a78;
+  --rose-deep: #a8204b;
+  
+  --cream-parchment: #fffbf4;
+  --cream-warm: #fcf4e8;
+  --deep-plum: #2b0e1e;
+  --deep-velvet: #180512;
+  --charcoal-ink: #381f2b;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-script: 'Dancing Script', cursive;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --shadow-sm: 0 4px 12px rgba(43, 14, 30, 0.08);
+  --shadow-md: 0 12px 30px rgba(43, 14, 30, 0.12);
+  --shadow-lg: 0 24px 60px rgba(43, 14, 30, 0.18), 0 0 35px rgba(223, 161, 61, 0.22);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: radial-gradient(circle at 50% 15%, #ffffff 0%, #fff4f7 45%, #fae8ee 100%);
+  color: var(--deep-plum);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Ambient Canvas Background */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Section Layout & Containers
+   ========================================================================== */
+.scratch-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(35px, 6vw, 75px) clamp(16px, 4vw, 36px) clamp(50px, 8vw, 95px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Section Header Area
+   ========================================================================== */
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin-bottom: clamp(30px, 5vw, 45px);
+  animation: fadeInDown 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.chapter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(223, 161, 61, 0.45);
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-family: var(--font-cinzel);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(223, 161, 61, 0.15);
+  margin-bottom: 18px;
+}
+
+.pill-icon {
+  font-size: 1rem;
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--deep-plum);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.headline em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--rose-bloom) 0%, #b82352 50%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.subheadline {
+  font-size: clamp(0.96rem, 1.8vw, 1.12rem);
+  color: rgba(43, 14, 30, 0.82);
+  line-height: 1.68;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.header-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.flourish-icon {
+  font-size: 1.15rem;
+  color: var(--champagne-gold);
+}
+
+.flourish-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(223, 161, 61, 0.6), transparent);
+}
+
+/* ==========================================================================
+   Stage & VIP Banner
+   ========================================================================== */
+.stage-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 4vw, 36px);
+}
+
+/* VIP Keepsake Banner */
+.vip-ticket-badge {
+  width: 100%;
+  max-width: 820px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 246, 248, 0.9));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(223, 161, 61, 0.4);
+  border-radius: 18px;
+  padding: 12px 24px;
+  box-shadow: 0 8px 24px rgba(223, 161, 61, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.badge-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge-icon {
+  font-size: 1.6rem;
+  background: rgba(223, 161, 61, 0.15);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(223, 161, 61, 0.3);
+}
+
+.badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-title {
+  font-family: var(--font-cinzel);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 1.2px;
+  color: var(--deep-plum);
+}
+
+.badge-sub {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--gold-dark);
+}
+
+.badge-divider {
+  flex: 1;
+  height: 1px;
+  min-width: 20px;
+  background: dashed 1px rgba(223, 161, 61, 0.35);
+  margin: 0 10px;
+}
+
+.badge-code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+  background: rgba(232, 74, 120, 0.1);
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px dashed rgba(232, 74, 120, 0.3);
+}
+
+/* ==========================================================================
+   Tracker Card & Quick Action Controls
+   ========================================================================== */
+.tracker-card {
+  width: 100%;
+  max-width: 820px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(223, 161, 61, 0.35);
+  border-radius: 24px;
+  padding: 22px 28px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tracker-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tracker-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tracker-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ec4b6;
+  box-shadow: 0 0 10px #2ec4b6;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.tracker-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+}
+
+.tracker-counter-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  background: linear-gradient(135deg, rgba(255, 248, 240, 0.9), rgba(255, 237, 241, 0.9));
+  padding: 8px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(223, 161, 61, 0.3);
+}
+
+.tracker-counter-badge span {
+  font-family: var(--font-cinzel);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--rose-deep);
+}
+
+.tracker-counter-badge small {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--charcoal-ink);
+}
+
+/* Progress Bar */
+.progress-bar-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(223, 161, 61, 0.15);
+  border-radius: 999px;
+  overflow: visible;
+  position: relative;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dfa13d 0%, #f77f00 50%, #e84a78 100%);
+  box-shadow: 0 0 16px rgba(232, 74, 120, 0.5);
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.progress-glow-head {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  filter: drop-shadow(0 0 4px #ffd166);
+}
+
+/* Action Buttons Row */
+.tracker-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.btn-scratch-all {
+  background: linear-gradient(135deg, #dfa13d 0%, #b77618 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(223, 161, 61, 0.35);
+}
+
+.btn-scratch-all:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(223, 161, 61, 0.45);
+  background: linear-gradient(135deg, #e8ad47 0%, #c5821d 100%);
+}
+
+.btn-refoil {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--charcoal-ink);
+  border: 1px solid rgba(223, 161, 61, 0.35);
+}
+
+.btn-refoil:hover {
+  background: var(--blush-card);
+  color: var(--rose-deep);
+  border-color: var(--rose-bloom);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3 Scratch-off Coupons Grid
+   ========================================================================== */
+.coupons-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+  margin-top: 10px;
+}
+
+/* The Ticket Container */
+.coupon-card {
+  position: relative;
+  background: var(--cream-parchment);
+  border-radius: 24px;
+  border: 2px solid var(--champagne-gold);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.coupon-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(43, 14, 30, 0.22), 0 0 45px rgba(223, 161, 61, 0.35);
+}
+
+/* Ticket Stub Cutout Perforations */
+.ticket-stub-cutout {
+  position: absolute;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle at 50% 15%, #ffffff 0%, #fae8ee 100%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  box-shadow: inset 0 0 6px rgba(43, 14, 30, 0.25);
+  pointer-events: none;
+}
+
+.ticket-stub-cutout.notch-left {
+  left: -13px;
+  border-right: 2px solid var(--champagne-gold);
+}
+
+.ticket-stub-cutout.notch-right {
+  right: -13px;
+  border-left: 2px solid var(--champagne-gold);
+}
+
+/* ==========================================================================
+   Base Layer: Revealed Ticket Content (Layer 1 Underneath)
+   ========================================================================== */
+.ticket-under-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(circle at 50% 30%, #fffdf9 0%, #fff6ec 60%, #faefe1 100%);
+  z-index: 1;
+}
+
+.ticket-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(223, 161, 61, 0.45);
+}
+
+.ticket-stamp-tag {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--rose-deep);
+  text-transform: uppercase;
+}
+
+.ticket-serial {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  background: rgba(223, 161, 61, 0.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Hero Icon in Ticket */
+.ticket-icon-wrap {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-glow-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 161, 61, 0.25) 0%, transparent 70%);
+  animation: glowPulse 2.4s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+.ticket-hero-icon {
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+}
+
+/* Coupon Prize Text */
+.coupon-prize-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.6vw, 1.38rem);
+  font-weight: 700;
+  color: var(--deep-plum);
+  text-align: center;
+  line-height: 1.35;
+  margin-top: 6px;
+  letter-spacing: -0.2px;
+}
+
+.coupon-prize-sub {
+  font-family: var(--font-script);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--rose-bloom);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Details Box */
+.ticket-details-box {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(223, 161, 61, 0.3);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin: 12px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-family: var(--font-cinzel);
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: rgba(43, 14, 30, 0.55);
+  letter-spacing: 0.8px;
+}
+
+.detail-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+}
+
+/* Footer Row */
+.ticket-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(223, 161, 61, 0.45);
+  font-size: 0.75rem;
+}
+
+.ticket-fineprint {
+  font-size: 0.7rem;
+  color: rgba(43, 14, 30, 0.65);
+  font-style: italic;
+  max-width: 55%;
+}
+
+.ticket-sign {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--rose-deep);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   Unlocked Slam Stamp
+   ========================================================================== */
+.unlocked-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg) scale(0);
+  border: 3px double var(--rose-deep);
+  background: rgba(255, 240, 245, 0.92);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--rose-deep);
+  box-shadow: 0 10px 30px rgba(168, 32, 75, 0.25);
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.unlocked-stamp.slammed {
+  animation: stampSlam 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 1;
+}
+
+@keyframes stampSlam {
+  0% {
+    transform: translate(-50%, -50%) rotate(-25deg) scale(2.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-12deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.stamp-icon {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+.stamp-text {
+  font-family: var(--font-cinzel);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.stamp-sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   Top Layer: Canvas Scratch Foil Layer (Layer 2 On Top)
+   ========================================================================== */
+.scratch-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: crosshair;
+  touch-action: none; /* Prevents mobile scrolling while scratching! */
+  transition: opacity 0.5s ease;
+}
+
+.scratch-canvas-container.cleared {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scratch-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+/* Floating Scratch Hint inside the card */
+.scratch-hint-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(43, 14, 30, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 224, 139, 0.5);
+  border-radius: 999px;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: floatBounce 2.5s infinite ease-in-out;
+  transition: opacity 0.3s ease;
+}
+
+.scratch-canvas-container.scratching .scratch-hint-overlay {
+  opacity: 0.2;
+}
+
+.coin-icon {
+  font-size: 1rem;
+}
+
+.hint-text {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #ffd875;
+}
+
+.hint-sub {
+  display: none;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Shimmer streak running across foil */
+.scratch-canvas-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: foilShimmer 4.5s infinite ease-in-out;
+}
+
+@keyframes foilShimmer {
+  0% { left: -120%; }
+  35%, 100% { left: 180%; }
+}
+
+/* ==========================================================================
+   Accessible Keyboard Reveal Button
+   ========================================================================== */
+.accessible-reveal-bar {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.accessible-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--champagne-gold);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.accessible-btn:hover,
+.accessible-btn:focus-visible {
+  opacity: 1;
+  background: var(--rose-bloom);
+  color: #fff;
+  border-color: var(--rose-bloom);
+  transform: scale(1.05);
+  outline: none;
+}
+
+.coupon-card.revealed .accessible-reveal-bar {
+  display: none;
+}
+
+/* ==========================================================================
+   Bottom Sealed Keepsake Certificate
+   ========================================================================== */
+.keepsake-certificate {
+  width: 100%;
+  max-width: 820px;
+  background: radial-gradient(circle at 50% 20%, #fffefb 0%, #fff6ed 70%, #faeee0 100%);
+  border: 2px solid var(--champagne-gold);
+  border-radius: 28px;
+  padding: clamp(26px, 4vw, 36px);
+  position: relative;
+  box-shadow: var(--shadow-md);
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.cert-gold-seal {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dfa13d 0%, #ffd875 50%, #9c6515 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 24px rgba(223, 161, 61, 0.4);
+  flex-shrink: 0;
+  border: 2px solid #ffffff;
+}
+
+.cert-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cert-tag {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--rose-deep);
+}
+
+.cert-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 700;
+  color: var(--deep-plum);
+}
+
+.cert-body {
+  font-size: clamp(0.92rem, 1.6vw, 1rem);
+  color: var(--charcoal-ink);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.cert-sign-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(223, 161, 61, 0.45);
+}
+
+.cert-date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.cert-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.8rem;
+}
+
+.cert-signature strong {
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+}
+
+/* ==========================================================================
+   Floating Audio Control Dock
+   ========================================================================== */
+.floating-audio-dock {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 1000;
+}
+
+.sound-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(223, 161, 61, 0.45);
+  box-shadow: 0 8px 24px rgba(43, 14, 30, 0.15);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sound-pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(223, 161, 61, 0.3);
+  border-color: var(--rose-bloom);
+}
+
+.sound-pill-btn.muted {
+  opacity: 0.65;
+  filter: grayscale(0.7);
+}
+
+/* ==========================================================================
+   Interactive Scratch Tooltip / Cursor Coin
+   ========================================================================== */
+.scratch-cursor-coin {
+  position: fixed;
+  width: 38px;
+  height: 38px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scratch-cursor-coin.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.coin-inner {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  animation: coinTilt 0.4s infinite alternate ease-in-out;
+}
+
+@keyframes coinTilt {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(15deg); }
+}
+
+/* ==========================================================================
+   Toast Notification Banner
+   ========================================================================== */
+.scratch-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: rgba(43, 14, 30, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid var(--champagne-gold);
+  border-radius: 999px;
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  z-index: 10001;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scratch-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 960px) {
+  .coupons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .coupons-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 10px auto 0;
+  }
+
+  .vip-ticket-badge {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .badge-divider {
+    display: none;
+  }
+
+  .keepsake-certificate {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cert-sign-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cert-signature {
+    align-items: center;
+  }
+
+  .scratch-cursor-coin {
+    display: none; /* Hide custom cursor coin on touch devices for native finger feel */
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="Part 08 — Scratch-Off Love Coupons for Aditi Soni. Golden ticket promises scratched open with love.">
+  <title>Part 08 · Scratch-Off Love Coupons 🎟️ | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif, Romantic Script & Clean Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Golden Foil Dust, Sparkles & Rose Petals Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main Section Wrapper -->
+  <section class="scratch-section" id="scratch-coupons-section" aria-label="Part 08: Scratch-Off Love Coupons">
+
+    <!-- Section Header Area -->
+    <header class="section-header">
+      <div class="chapter-pill">
+        <span class="pill-icon">🎟️</span>
+        <span>Part 08 · Scratch-Off Love Coupons</span>
+      </div>
+
+      <h1 class="headline">
+        A few little promises, <em>scratched open just for you.</em>
+      </h1>
+
+      <p class="subheadline">
+        Some gifts don’t need wrapping — they just need a little love. Drag your finger or mouse across each golden foil ticket to uncover your reward.
+      </p>
+
+      <div class="header-flourish" aria-hidden="true">
+        <span class="flourish-icon">✨</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-icon">🪙</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-icon">💖</span>
+      </div>
+    </header>
+
+    <!-- Stage Container -->
+    <div class="stage-container">
+
+      <!-- Golden Ticket Keepsake Banner (DOB: 16 Dec 2009) -->
+      <div class="vip-ticket-badge" aria-hidden="true">
+        <div class="badge-left">
+          <span class="badge-icon">👑</span>
+          <div class="badge-text">
+            <span class="badge-title">VIP LOVE PASS · FOR ADITI SONI</span>
+            <span class="badge-sub">SWEET 17 · 16 DEC 2009 · NO EXPIRATION</span>
+          </div>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge-code">
+          <span>CODE: ADITI-SPIDY-1612</span>
+        </div>
+      </div>
+
+      <!-- Tracker & Quick Controls Bar -->
+      <div class="tracker-card" id="tracker-card">
+        <div class="tracker-info-row">
+          <div class="tracker-title-group">
+            <div class="tracker-status-pill">
+              <span class="pulse-dot"></span>
+              <span>3 EXCLUSIVE GOLDEN REWARDS</span>
+            </div>
+            <h3 class="tracker-title">Aditi’s Love Voucher Collection</h3>
+          </div>
+
+          <div class="tracker-counter-badge">
+            <span id="revealed-count">0</span>
+            <small>/ 3 Coupons Revealed</small>
+          </div>
+        </div>
+
+        <!-- Progress Bar Track -->
+        <div class="progress-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="3" aria-label="Coupons scratch progress">
+          <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
+            <span class="progress-glow-head">✨</span>
+          </div>
+        </div>
+
+        <!-- Quick Gallery Action Buttons -->
+        <div class="tracker-actions-row">
+          <button class="action-btn btn-scratch-all" id="btn-scratch-all" type="button" aria-label="Instantly reveal all coupons">
+            <span>✨</span>
+            <span>Quick Scratch All</span>
+          </button>
+          <button class="action-btn btn-refoil" id="btn-refoil" type="button" aria-label="Re-apply gold foil to scratch again">
+            <span>🔄</span>
+            <span>Scratch Again (Re-Foil)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3 Scratch-Off Cards Grid -->
+      <div class="coupons-grid" id="coupons-grid" role="region" aria-label="3 Golden Scratch-off Coupons">
+
+        <!-- ================= CARD 1 ================= -->
+        <article class="coupon-card" id="coupon-card-1" data-id="1">
+          <div class="ticket-stub-cutout notch-left" aria-hidden="true"></div>
+          <div class="ticket-stub-cutout notch-right" aria-hidden="true"></div>
+          
+          <!-- Base Revealed Ticket Content (Layer 1 Underneath) -->
+          <div class="ticket-under-layer">
+            <div class="ticket-header-row">
+              <span class="ticket-stamp-tag">OFFICIAL VOUCHER #01</span>
+              <span class="ticket-serial">SER: HUG-1612</span>
+            </div>
+
+            <div class="ticket-icon-wrap" aria-hidden="true">
+              <div class="ticket-glow-circle"></div>
+              <span class="ticket-hero-icon">🫂</span>
+            </div>
+
+            <h3 class="coupon-prize-title">
+              Unlimited cuddles & tight hugs on demand
+            </h3>
+            <p class="coupon-prize-sub">
+              (Never expires · 100% unconditional warmth)
+            </p>
+
+            <div class="ticket-details-box">
+              <div class="detail-item">
+                <span class="detail-label">BENEFICIARY</span>
+                <span class="detail-val">Aditi Soni 💖</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">VALIDITY</span>
+                <span class="detail-val">Forever & Always</span>
+              </div>
+            </div>
+
+            <div class="ticket-footer-row">
+              <span class="ticket-fineprint">Redeemable whenever you need love</span>
+              <strong class="ticket-sign">yours spidy 🕸️❤️</strong>
+            </div>
+
+            <!-- Unlocked Slam Stamp -->
+            <div class="unlocked-stamp" id="stamp-1" aria-hidden="true">
+              <span class="stamp-border"></span>
+              <span class="stamp-icon">💖</span>
+              <span class="stamp-text">UNLOCKED & PROMISED</span>
+              <span class="stamp-sub">VALID FOREVER</span>
+            </div>
+          </div>
+
+          <!-- Top Canvas Scratch Foil Layer (Layer 2 On Top) -->
+          <div class="scratch-canvas-container" id="canvas-container-1">
+            <canvas class="scratch-canvas" id="canvas-1" aria-hidden="true"></canvas>
+            <div class="scratch-hint-overlay" aria-hidden="true">
+              <span class="coin-icon">🪙</span>
+              <span class="hint-text">RUB TO SCRATCH</span>
+              <span class="hint-sub">✨ Golden Foil Ticket #01 ✨</span>
+            </div>
+          </div>
+
+          <!-- Accessible Keyboard Fallback Action Button -->
+          <div class="accessible-reveal-bar">
+            <button class="accessible-btn" id="acc-btn-1" type="button" aria-label="Reveal Coupon 1: Unlimited cuddles and tight hugs">
+              <span>🪙 Scratch to Reveal</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ================= CARD 2 ================= -->
+        <article class="coupon-card" id="coupon-card-2" data-id="2">
+          <div class="ticket-stub-cutout notch-left" aria-hidden="true"></div>
+          <div class="ticket-stub-cutout notch-right" aria-hidden="true"></div>
+          
+          <!-- Base Revealed Ticket Content (Layer 1 Underneath) -->
+          <div class="ticket-under-layer">
+            <div class="ticket-header-row">
+              <span class="ticket-stamp-tag">OFFICIAL VOUCHER #02</span>
+              <span class="ticket-serial">SER: DINE-1612</span>
+            </div>
+
+            <div class="ticket-icon-wrap" aria-hidden="true">
+              <div class="ticket-glow-circle"></div>
+              <span class="ticket-hero-icon">🕯️🍽️</span>
+            </div>
+
+            <h3 class="coupon-prize-title">
+              Dinner date at your favorite spot, my treat
+            </h3>
+            <p class="coupon-prize-sub">
+              (Any restaurant, any dish, all your cravings)
+            </p>
+
+            <div class="ticket-details-box">
+              <div class="detail-item">
+                <span class="detail-label">BENEFICIARY</span>
+                <span class="detail-val">Aditi Soni 💖</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">VALIDITY</span>
+                <span class="detail-val">Your Choice of Day</span>
+              </div>
+            </div>
+
+            <div class="ticket-footer-row">
+              <span class="ticket-fineprint">Candlelight & endless talks included</span>
+              <strong class="ticket-sign">yours spidy 🕸️❤️</strong>
+            </div>
+
+            <!-- Unlocked Slam Stamp -->
+            <div class="unlocked-stamp" id="stamp-2" aria-hidden="true">
+              <span class="stamp-border"></span>
+              <span class="stamp-icon">🍷</span>
+              <span class="stamp-text">UNLOCKED & PROMISED</span>
+              <span class="stamp-sub">DATE GUARANTEED</span>
+            </div>
+          </div>
+
+          <!-- Top Canvas Scratch Foil Layer (Layer 2 On Top) -->
+          <div class="scratch-canvas-container" id="canvas-container-2">
+            <canvas class="scratch-canvas" id="canvas-2" aria-hidden="true"></canvas>
+            <div class="scratch-hint-overlay" aria-hidden="true">
+              <span class="coin-icon">🪙</span>
+              <span class="hint-text">RUB TO SCRATCH</span>
+              <span class="hint-sub">✨ Golden Foil Ticket #02 ✨</span>
+            </div>
+          </div>
+
+          <!-- Accessible Keyboard Fallback Action Button -->
+          <div class="accessible-reveal-bar">
+            <button class="accessible-btn" id="acc-btn-2" type="button" aria-label="Reveal Coupon 2: Dinner date at your favorite spot">
+              <span>🪙 Scratch to Reveal</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ================= CARD 3 ================= -->
+        <article class="coupon-card" id="coupon-card-3" data-id="3">
+          <div class="ticket-stub-cutout notch-left" aria-hidden="true"></div>
+          <div class="ticket-stub-cutout notch-right" aria-hidden="true"></div>
+          
+          <!-- Base Revealed Ticket Content (Layer 1 Underneath) -->
+          <div class="ticket-under-layer">
+            <div class="ticket-header-row">
+              <span class="ticket-stamp-tag">OFFICIAL VOUCHER #03</span>
+              <span class="ticket-serial">SER: WISH-1612</span>
+            </div>
+
+            <div class="ticket-icon-wrap" aria-hidden="true">
+              <div class="ticket-glow-circle"></div>
+              <span class="ticket-hero-icon">⭐🧞</span>
+            </div>
+
+            <h3 class="coupon-prize-title">
+              One wish granted with zero questions asked
+            </h3>
+            <p class="coupon-prize-sub">
+              (Whatever your heart desires, big or small)
+            </p>
+
+            <div class="ticket-details-box">
+              <div class="detail-item">
+                <span class="detail-label">BENEFICIARY</span>
+                <span class="detail-val">Aditi Soni 💖</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">VALIDITY</span>
+                <span class="detail-val">Lifetime Royal Pass</span>
+              </div>
+            </div>
+
+            <div class="ticket-footer-row">
+              <span class="ticket-fineprint">Your wish is my utmost command</span>
+              <strong class="ticket-sign">yours spidy 🕸️❤️</strong>
+            </div>
+
+            <!-- Unlocked Slam Stamp -->
+            <div class="unlocked-stamp" id="stamp-3" aria-hidden="true">
+              <span class="stamp-border"></span>
+              <span class="stamp-icon">👑</span>
+              <span class="stamp-text">UNLOCKED & PROMISED</span>
+              <span class="stamp-sub">GENIE GUARANTEE</span>
+            </div>
+          </div>
+
+          <!-- Top Canvas Scratch Foil Layer (Layer 2 On Top) -->
+          <div class="scratch-canvas-container" id="canvas-container-3">
+            <canvas class="scratch-canvas" id="canvas-3" aria-hidden="true"></canvas>
+            <div class="scratch-hint-overlay" aria-hidden="true">
+              <span class="coin-icon">🪙</span>
+              <span class="hint-text">RUB TO SCRATCH</span>
+              <span class="hint-sub">✨ Golden Foil Ticket #03 ✨</span>
+            </div>
+          </div>
+
+          <!-- Accessible Keyboard Fallback Action Button -->
+          <div class="accessible-reveal-bar">
+            <button class="accessible-btn" id="acc-btn-3" type="button" aria-label="Reveal Coupon 3: One wish granted with zero questions asked">
+              <span>🪙 Scratch to Reveal</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Bottom Sealed Keepsake Guarantee Envelope -->
+      <div class="keepsake-certificate" id="keepsake-certificate">
+        <div class="cert-gold-seal" aria-hidden="true">
+          <span>👑</span>
+        </div>
+        <div class="cert-content">
+          <span class="cert-tag">CERTIFICATE OF ETERNAL PROMISES</span>
+          <h3 class="cert-title">The Spidy & Aditi Lifetime Warranty</h3>
+          <p class="cert-body">
+            “These coupons never expire, Aditi. On your happiest afternoons, on days when you’re tired and just need to be held, or on any ordinary Tuesday when you want to feel like a queen — redeem them with pride. Every single promise is backed by all of my heart.”
+          </p>
+          <div class="cert-sign-row">
+            <div class="cert-date">16 December 2009 · Sweet 17 Birthday</div>
+            <div class="cert-signature">
+              <span>Sealed with love,</span>
+              <strong>yours spidy 🕸️❤️</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Floating Audio Control Dock -->
+    <div class="floating-audio-dock">
+      <button class="sound-pill-btn" id="sound-btn" type="button" aria-label="Toggle scratch sounds and celebration chimes">
+        <span class="sound-icon">🎵</span>
+        <span class="sound-text">Sound Effects ON</span>
+      </button>
+    </div>
+
+    <!-- Interactive Scratch Tooltip / Cursor Glow -->
+    <div class="scratch-cursor-coin" id="scratch-coin" aria-hidden="true">
+      <div class="coin-inner">🪙</div>
+    </div>
+
+  
+    <!-- Proceed to Part 9 Flow Bridge -->
+    <div class="part-flow-bridge" style="text-align: center; margin: 34px auto 14px; max-width: 580px; padding: 22px; background: rgba(255, 255, 255, 0.92); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 20px; box-shadow: 0 8px 24px rgba(43, 14, 30, 0.08);">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 6px;">✓ CHAPTER 08 COMPLETE</div>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #2b0e1e; margin: 0 0 6px;">3 Golden Love Coupons Officially Redeemed! 🎟️✨</h3>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: #634356; margin: 0 0 16px; line-height: 1.45;">6 little handcrafted envelopes tucked with warmth for whenever you need a smile, a hug, or courage.</p>
+      <a class="part-flow-btn" href="../part 9/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #dfa13d, #b8781e); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.92rem; box-shadow: 0 6px 20px rgba(223, 161, 61, 0.4);">
+        <span>Continue to Part 09: Open When… Letters ✉️ ↷</span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
