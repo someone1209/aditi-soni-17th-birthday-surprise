@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff4f7">
+  <meta name="description" content="10x Luxury 3D Gourmet Birthday Cake with interactive firing candles, made with love for Aditi Soni.">
+  <title>Aditi's 3D Birthday Cake ✨🎂</title>
+
+  <!-- Google Fonts for Luxury Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="night-mode">
+
+  <!-- WebGL 3D Canvas -->
+  <canvas id="webgl-canvas" aria-label="3D Birthday Cake with firing candles"></canvas>
+
+  <!-- UI Overlay -->
+  <div class="ui-layer">
+    <!-- Top Header & Quick Controls -->
+    <header class="header-bar">
+      <div class="title-badge interactive">
+        <div class="badge-tag">
+          <span class="heart-sparkle">❤️</span>
+          <span>A Birthday Wish for Aditi Soni</span>
+        </div>
+        <h1>Aditi's Birthday Cake</h1>
+        <p>A little 3D magic with firing candles, just for you.</p>
+      </div>
+
+      <div class="quick-tools interactive">
+        <button class="icon-btn" id="btn-music" type="button" aria-label="Toggle Happy Birthday Music">
+          🎵
+          <span class="tooltip">Birthday Music</span>
+        </button>
+        <button class="icon-btn active" id="btn-night" type="button" aria-label="Toggle Night Starlight Mode">
+          🌙
+          <span class="tooltip">Night / Day Mode</span>
+        </button>
+        <button class="icon-btn" id="btn-view-top" type="button" aria-label="Top-down beauty shot">
+          🧁
+          <span class="tooltip">Top View</span>
+        </button>
+        <button class="icon-btn" id="btn-view-reset" type="button" aria-label="Reset Camera View">
+          🔄
+          <span class="tooltip">Reset View</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Center Status Pill -->
+    <div class="status-pill interactive" id="status-pill">
+      <span class="flame-count-dot"></span>
+      <span>5 flames dancing, make a wish ✨</span>
+    </div>
+
+    <!-- Bottom Actions Deck -->
+    <footer class="bottom-deck">
+      <div class="actions-container interactive">
+        <button class="action-btn primary-btn" id="btn-blow" type="button">
+          <span>🌬️</span>
+          <span>Blow Candles</span>
+        </button>
+        <button class="action-btn" id="btn-relight" type="button">
+          <span>✨</span>
+          <span>Relight</span>
+        </button>
+        <button class="action-btn" id="btn-cut" type="button">
+          <span>🍰</span>
+          <span>Cut Cake</span>
+        </button>
+        <button class="action-btn" id="btn-sparkler" type="button">
+          <span>🎆</span>
+          <span>Sparklers</span>
+        </button>
+        <button class="action-btn" id="btn-mic" type="button" title="Blow into your microphone to extinguish the candles!">
+          <span>🎤</span>
+          <span>Mic Blow</span>
+        </button>
+        <a class="action-btn next-btn-deck" href="../part 4/index.html" style="text-decoration: none; background: rgba(232, 74, 120, 0.25); border: 1px solid rgba(232, 74, 120, 0.55); color: #ffffff !important;" title="Continue to Part 04: The Love Notes">
+          <span>💌</span>
+          <span>Part 04 ↷</span>
+        </a>
+      </div>
+      <div class="hint-text">
+        <span>💡 Tip: Drag to rotate in 360° • Pinch / scroll to zoom • Click any candle to blow it out</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Pop-Up Wish Modal (Triggered on Cake Cutting) -->
+  <div class="modal-overlay" id="wish-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="wish-card-modal">
+      <div class="wish-card-seal">💝</div>
+      <div class="cake-slice-preview">🍰</div>
+      <h2 id="modal-title">Happy Birthday, Aditi Soni!</h2>
+      <div class="wish-card-body">
+        <div style="display:inline-block; margin-bottom:12px; padding:4px 16px; background:rgba(232,74,120,0.18); border-radius:20px; font-size:0.75rem; font-weight:700; color:#ff7597; letter-spacing:1.2px;">⭐ BORN 16 DEC 2009 · 17 YEARS OF PURE MAGIC</div>
+        <p>“I hope your life keeps blooming with love, laughter, and all the beautiful things you deserve.”</p>
+        <p style="margin-top: 10px;">Here’s the first slice of your birthday cake, filled with all my sweetest thoughts and biggest wishes for your year ahead.</p>
+        <p style="margin-top: 10px;">From 16 Dec 2009 until forever, you will always be the girl I pray for, the smile that brightens my whole world, and the one I love without any pressure or conditions. Keep shining, my birthday girl.</p>
+      </div>
+      <div class="wish-card-signature">With all my love,<br><em>yours spidy 🕸️❤️</em></div>
+      <button class="close-modal-btn" id="close-modal" type="button">Enjoy the Cake ✨</button>
+      <a class="btn-next-part" href="../part 4/index.html" style="display: block; text-align: center; margin-top: 12px; padding: 12px 24px; border-radius: 999px; background: linear-gradient(135deg, #e84a78, #ff758f); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(232, 74, 120, 0.4);">
+        💌 Proceed to Part 4: The Love Notes →
+      </a>
+    </div>
+  </div>
+
+  <!-- Local Libraries with CDN Fallbacks for Maximum Reliability -->
+  <script src="libs/three.min.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+    }
+  </script>
+  <script src="libs/OrbitControls.js"></script>
+  <script>
+    if (typeof THREE.OrbitControls === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"><\/script>');
+    }
+  </script>
+  <script src="libs/confetti.browser.min.js"></script>
+  <script>
+    if (typeof confetti === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- Main 3D Cake Application Logic -->
+  <script src="cake3d.js"></script>
+  <!-- Floating Next-Part Navigation Pill (Bottom-Right, Zero Obstruction) -->
+  <aside class="floating-next-bridge" style="position: fixed; bottom: 20px; right: 24px; z-index: 99;">
+    <a class="part-flow-btn" href="../part 4/index.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 999px; background: linear-gradient(135deg, #e84a78, #ff758f); color: #fff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.88rem; box-shadow: 0 8px 24px rgba(232, 74, 120, 0.45); border: 1.5px solid rgba(255, 255, 255, 0.35); transition: all 0.25s ease;">
+      <span>Part 04: The Love Notes 💌 ↷</span>
+    </a>
+  </aside>
+</body>
+</html>
