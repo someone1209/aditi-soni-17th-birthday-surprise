@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="The Human Check - A playful and romantic birthday surprise gatekeeper for Aditi Soni.">
+  <title>The Human Check ✨ | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif & Romantic Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Floating Clouds & Whimsical Doodles -->
+  <div class="bg-decorations" aria-hidden="true">
+    <span class="cloud cloud-1">☁️</span>
+    <span class="cloud cloud-2">☁️</span>
+    <span class="cloud cloud-3">☁️</span>
+    <span class="cloud cloud-4">☁️</span>
+    <span class="floating-icon float-1">🌸</span>
+    <span class="floating-icon float-2">✨</span>
+    <span class="floating-icon float-3">💖</span>
+    <span class="floating-icon float-4">🌷</span>
+  </div>
+
+  <!-- Confetti Canvas Layer -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Main Stage Container -->
+  <main class="stage-container">
+    
+    <!-- Top Scrapbook Tag -->
+    <div class="stage-tag">
+      <span class="heart-pulse">❤️</span>
+      <span>The Human Check • Section 01</span>
+    </div>
+
+    <!-- The Scrapbook Card -->
+    <article class="scrapbook-card" id="scrapbook-card">
+      
+      <!-- Washi Tape Strips -->
+      <div class="washi-tape washi-left" aria-hidden="true"></div>
+      <div class="washi-tape washi-right" aria-hidden="true"></div>
+
+      <!-- Air Mail Postage Stamp -->
+      <div class="postage-stamp" aria-hidden="true">
+        <span>💌</span>
+        <small>Special Delivery</small>
+      </div>
+
+      <!-- Subtitle & Eyebrow -->
+      <p class="card-subtitle">
+        a very serious test for <em>Aditi Soni</em>, conducted by your favorite boy
+      </p>
+
+      <!-- Animated Mascot Stage -->
+      <div class="mascot-stage">
+        <div class="mascot-avatar" id="mascot-avatar" aria-label="Cute mascot emoji">🐣</div>
+        <div class="mascot-shadow" aria-hidden="true"></div>
+      </div>
+
+      <!-- Main Question Title -->
+      <h1 class="card-title" id="card-title">
+        Are you human, <span>Aditi?</span>
+      </h1>
+
+      <!-- Interactive Thought Speech Bubble -->
+      <div class="speech-bubble" id="speech-bubble" aria-live="polite">
+        Be honest babyyy. I need to check before I give you your birthday surprise hehe 🙈✨
+      </div>
+
+      <!-- Choice Buttons Group 1: The Initial Human Test -->
+      <div class="button-group" id="group-human">
+        <button class="btn btn-yes" id="btn-yes" type="button">
+          <span>✨</span>
+          <span>Yesss, obviously!</span>
+          <span>🌸</span>
+        </button>
+        <button class="btn btn-no" id="btn-no" type="button">
+          <span>😏</span>
+          <span>Nope.</span>
+        </button>
+      </div>
+
+      <!-- Choice Buttons Group 2: The Teasing Hinglish Conversation -->
+      <div class="button-group hidden" id="group-hinglish">
+        <button class="btn btn-yes" id="btn-hinglish-yes" type="button">
+          <span>hnnn boloo 💕</span>
+        </button>
+        <button class="btn btn-no" id="btn-hinglish-no" type="button">
+          <span>nhiii 🙈</span>
+        </button>
+      </div>
+
+      <!-- Choice Buttons Group 3: The Grand Unlock Button -->
+      <div class="button-group hidden" id="group-unlock">
+        <button class="btn btn-unlock" id="btn-unlock" type="button">
+          <span>✨ Okay, Open My Birthday Surprise 🎁</span>
+        </button>
+      </div>
+
+      <!-- Card Bottom Footer -->
+      <footer class="card-footer">
+        <span>psst. choose carefully babyyy</span>
+        <span>yours spidy 🕸️❤️</span>
+      </footer>
+
+      <!-- Audio Mute/Unmute Toggle -->
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-label="Toggle sound effects">
+        <span>🔊</span>
+        <span>Sound ON</span>
+      </button>
+
+    
+      <!-- Proceed to Part 2 Flow Bridge -->
+      <div class="part-flow-bridge" style="text-align: center; margin: 24px auto 10px; max-width: 520px; padding: 20px; background: rgba(255, 255, 255, 0.95); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 20px; box-shadow: 0 8px 24px rgba(43, 14, 30, 0.08);">
+        <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 6px;">✦ CHAPTER 01 COMPLETE ✦</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #2b0e1e; margin: 0 0 6px;">Ready for the Next Surprise, Aditi?</h3>
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: #634356; margin: 0 0 16px; line-height: 1.45;">You passed the test babyyy! Ready to test your aim with Cupid's bow and pop 5 love balloons?</p>
+        <a class="part-flow-btn" href="../part 2/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #e84a78 0%, #b82352 60%, #dfa13d 100%); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.92rem; box-shadow: 0 6px 20px rgba(232, 74, 120, 0.4);">
+          <span>Continue to Part 02: Cupid's Balloon Pop 🏹 ↷</span>
+        </a>
+      </div>
+
+  </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
