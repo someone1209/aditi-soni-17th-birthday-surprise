@@ -18,11 +18,3 @@ Welcome to Aditi's 17th birthday interactive romantic website. The project is or
 10. **[Part 10: A Birthday Love Letter](part%2010/index.html)** — 5-page 3D spiral notebook journal with realistic ruled paper.
 
 ---
-
-## 🚀 Live GitHub Pages Deployment
-1. Push this repository to GitHub.
-2. In your repository on GitHub, go to **Settings** → **Pages**.
-3. Under **Build and deployment**, select **Source:** `Deploy from a branch`.
-4. Choose **Branch:** `main` (or `master`) and folder `/(root)`, then click **Save**.
-5. Your website will be live at:
-   `https://<your-username>.github.io/<repo-name>/`
