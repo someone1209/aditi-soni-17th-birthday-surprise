@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff5f7">
+  <meta name="description" content="Part 05 — Blooming Flower Garden for Aditi Soni. Tap each bloom and watch love unfold.">
+  <title>Part 05 · Blooming Flower Garden 🌸 | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif, Romantic Handwriting & Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Petals & Spores Canvas -->
+  <canvas id="garden-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main Section Wrapper -->
+  <section class="flower-garden-section" id="blooming-garden" aria-label="Part 05: Blooming Flower Garden">
+    
+    <!-- Section Header Area -->
+    <header class="section-header">
+      <div class="chapter-pill">
+        <span class="pill-icon">🌸</span>
+        <span>Part 05 · Blooming Flower Garden</span>
+      </div>
+
+      <h1 class="headline">
+        A little love <em>grows here.</em>
+      </h1>
+
+      <p class="subheadline">
+        Tap each bloom and watch love unfold.
+      </p>
+
+      <div class="header-flourish" aria-hidden="true">
+        <span class="flourish-stem">❦</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-flower">🌸</span>
+        <span class="flourish-line"></span>
+        <span class="flourish-stem">❦</span>
+      </div>
+    </header>
+
+    <!-- Garden Stage Container -->
+    <div class="garden-stage">
+
+      <!-- Living Ambient Garden Butterflies (Twice the Animation) -->
+      <div class="garden-butterflies" aria-hidden="true">
+        <div class="garden-butterfly butterfly-1">
+          <div class="wing wing-left"></div>
+          <div class="wing wing-right"></div>
+        </div>
+        <div class="garden-butterfly butterfly-2">
+          <div class="wing wing-left"></div>
+          <div class="wing wing-right"></div>
+        </div>
+        <div class="garden-butterfly butterfly-3">
+          <div class="wing wing-left"></div>
+          <div class="wing wing-right"></div>
+        </div>
+      </div>
+
+      <!-- Birthday Postage Stamp (DOB: 16 Dec 2009) -->
+      <div class="postage-stamp" aria-hidden="true">
+        <span class="stamp-icon">🌺</span>
+        <span class="stamp-title">ADITI</span>
+        <span class="stamp-date">16 DEC 2009</span>
+        <small class="stamp-sub">SWEET 16 BLOOMS</small>
+      </div>
+
+      <!-- Bouquet Progress Tracker Bar -->
+      <div class="bouquet-tracker-card" id="tracker-card">
+        <div class="tracker-info">
+          <div class="tracker-text-group">
+            <div class="tracker-badges-row">
+              <span class="tracker-badge">BIRTHDAY BOUQUET</span>
+              <span class="anim-status-badge">✨ 2× Living Animations Active</span>
+            </div>
+            <h3 class="tracker-title">Aditi’s Garden of Love</h3>
+          </div>
+          <div class="tracker-count-badge">
+            <span id="blooms-unlocked-count">0</span>
+            <small>/ 16 Blooms Collected</small>
+          </div>
+        </div>
+
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
+            <span class="progress-glow-head">🌸</span>
+          </div>
+        </div>
+
+        <!-- Mini Floral Collection Preview Basket -->
+        <div class="bouquet-mini-preview" id="mini-bouquet-preview" aria-label="Collected blooms preview">
+          <!-- Mini flower icons append here as blooms unlock -->
+        </div>
+
+        <!-- Quick Garden Action Controls -->
+        <div class="garden-quick-actions">
+          <button class="garden-btn action-bloom-all" id="btn-bloom-all" type="button" aria-label="Bloom all flowers at once">
+            <span>✨</span>
+            <span>Bloom All</span>
+          </button>
+          <button class="garden-btn action-reset-garden" id="btn-reset-garden" type="button" aria-label="Reset garden to closed buds">
+            <span>↺</span>
+            <span>Tend Garden (Reset)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4x4 Grid of 16 Botanical Flower Pots -->
+      <div class="flowers-grid-4x4" id="flowers-grid" role="region" aria-label="16 Garden Flower Pots">
+        <!-- 16 Flower Pots dynamically rendered via script.js -->
+      </div>
+
+      <!-- Sealed Scrapbook Keepsake Letter at Bottom -->
+      <div class="keepsake-envelope" id="keepsake-envelope">
+        <div class="envelope-seal" aria-hidden="true">💝</div>
+        <div class="envelope-header">
+          <span class="envelope-badge">GARDEN OF MEMORIES · FOR ADITI</span>
+          <h3>Every Flower Whispers Your Name</h3>
+        </div>
+        <div class="envelope-message">
+          <p>“Aditi, just like these sixteen flowers, you bring color, warmth, and blooming joy into my life every single day. Born on 16 December 2009, you are and always will be my most cherished flower in the entire universe.”</p>
+        </div>
+        <div class="envelope-signature">
+          <span>Rooted in love forever,</span>
+          <strong>yours spidy 🕸️❤️</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Floating Audio Control Pill -->
+    <div class="floating-audio-dock">
+      <button class="sound-pill-btn" id="sound-btn" type="button" aria-label="Toggle kalimba chimes">
+        <span class="sound-icon">🎵</span>
+        <span class="sound-text">Kalimba Chimes ON</span>
+      </button>
+    </div>
+
+    <!-- Pop-Up Modal for Individual Flower Note -->
+    <div class="flower-modal-overlay" id="flower-modal" role="dialog" aria-modal="true" aria-labelledby="modal-flower-title">
+      <div class="flower-modal-card">
+        <div class="modal-top-accent" aria-hidden="true"></div>
+        <button class="flower-modal-close" id="flower-modal-close" type="button" aria-label="Close flower note">✕</button>
+        
+        <div class="modal-flower-icon" id="modal-flower-icon">🌸</div>
+        <div class="modal-flower-number" id="modal-flower-number">BLOOM · #01</div>
+        <h2 class="modal-flower-title" id="modal-flower-title">The First Rose</h2>
+        <div class="modal-flower-badge" id="modal-flower-species">English Rose · Symbol of Eternal Love</div>
+
+        <div class="modal-quote-box">
+          <p class="modal-quote" id="modal-quote">“You made my world bloom the day you came into my life.”</p>
+        </div>
+
+        <div class="modal-hinglish-box">
+          <p class="modal-hinglish" id="modal-hinglish">Tera milna mere liye kisi blessing se kam nahi tha, Aditi. Har ek din tere saath ek nayi khushi ban jata hai.</p>
+        </div>
+
+        <div class="modal-action-row">
+          <button class="modal-heart-btn" id="modal-heart-btn" type="button">
+            <span>❤️</span>
+            <span>Cherish This Bloom</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Bouquet Celebration Achievement Modal -->
+    <div class="master-celebration-overlay" id="master-celebration-modal" role="dialog" aria-modal="true" aria-labelledby="master-title">
+      <div class="master-certificate-card">
+        <div class="certificate-seal" aria-hidden="true">💐</div>
+        <span class="certificate-badge">MASTER BOUQUET COMPLETE</span>
+        <h2 id="master-title">Your Love is Blooming Beautifully!</h2>
+        <p class="certificate-subtitle">All 16 Flowers of Love Have Blossomed for Aditi Soni</p>
+
+        <div class="certificate-flowers-row" id="certificate-flower-icons">
+          <!-- 16 Mini blooms assembled into a royal wreath -->
+        </div>
+
+        <div class="certificate-message-body">
+          <p>“Aditi, from the first sweet bloom to the sixteenth golden petal, you have unlocked every single promise and memory in this garden.”</p>
+          <p style="margin-top: 10px;">May your life keep blossoming with smiles, endless joy, laughter, and pure magic. You will always be the most beautiful part of my story.</p>
+        </div>
+
+        <div class="certificate-signature">
+          <span>Happy Birthday, babyyygurlll!</span>
+          <strong>yours spidy 🕸️❤️</strong>
+        </div>
+
+        <button class="certificate-close-btn" id="master-celebration-close" type="button">
+          Keep Walking Through the Garden ✨
+        </button>
+        <a href="../part 6/index.html" class="certificate-close-btn" style="display: block; text-decoration: none; text-align: center; margin-top: 10px; background: linear-gradient(135deg, #e84a78, #b82352); color: #fff; font-weight: 700;">
+          🗝️ Continue to Part 06: Treasure Hunt →
+        </a>
+      </div>
+    </div>
+
+  
+    <!-- Proceed to Part 6 Flow Bridge -->
+    <div class="part-flow-bridge" style="text-align: center; margin: 34px auto 14px; max-width: 580px; padding: 22px; background: rgba(255, 255, 255, 0.92); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 20px; box-shadow: 0 8px 24px rgba(43, 14, 30, 0.08);">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 6px;">✓ CHAPTER 05 COMPLETE</div>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #2b0e1e; margin: 0 0 6px;">A Bouquet as Radiant as Your Smile 💐</h3>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; color: #634356; margin: 0 0 16px; line-height: 1.45;">12 secret clues are hidden in our favorite memories. Solve the riddles to crack the secret vault!</p>
+      <a class="part-flow-btn" href="../part 6/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border-radius: 999px; background: linear-gradient(135deg, #e84a78 0%, #b82352 60%, #dfa13d 100%); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.92rem; box-shadow: 0 6px 20px rgba(232, 74, 120, 0.4);">
+        <span>Continue to Part 06: Heart Clues Treasure Hunt 🗝️ ↷</span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
