@@ -1,0 +1,1054 @@
+/* ==========================================================================
+   PART 10 — A BIRTHDAY LOVE LETTER FOR ADITI
+   Realistic 3D Spiral Notebook with Smooth Page Turn Physics
+   Palette: Warm Cream Parchment, Blush Pink, Champagne Gold, Deep Velvet Plum
+   ========================================================================== */
+
+:root {
+  --champagne-gold: #dfa13d;
+  --gold-light: #fef0be;
+  --gold-dark: #9c6515;
+  --gold-metallic: linear-gradient(135deg, #d49a37 0%, #fde08b 25%, #dfa13d 50%, #fff2b2 75%, #b3781e 100%);
+  
+  --blush-pink: #fff0f5;
+  --blush-soft: #fedbe5;
+  --rose-bloom: #e84a78;
+  --rose-deep: #a8204b;
+  
+  --paper-cream: #fffdf8;
+  --paper-warm: #fcf8f0;
+  --paper-back: #f8f1e6;
+  --ruled-blue: rgba(70, 130, 180, 0.16);
+  --margin-red: rgba(232, 74, 120, 0.45);
+  
+  --deep-plum: #2b0e1e;
+  --deep-velvet: #180512;
+  --ink-pen: #381a29;
+  --charcoal-ink: #3b2230;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-script: 'Dancing Script', cursive;
+  --font-hand: 'Caveat', cursive, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --shadow-sm: 0 4px 12px rgba(43, 14, 30, 0.08);
+  --shadow-md: 0 12px 30px rgba(43, 14, 30, 0.12);
+  --shadow-book: 0 25px 65px rgba(43, 14, 30, 0.16), 0 0 35px rgba(223, 161, 61, 0.14);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: radial-gradient(circle at 45% 15%, #ffffff 0%, #fff4f7 42%, #fae8ee 100%);
+  color: var(--deep-plum);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Ambient Canvas Background */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Section Layout & Containers
+   ========================================================================== */
+.letter-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(30px, 5vw, 65px) clamp(16px, 4vw, 36px) clamp(50px, 7vw, 90px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-chapter-bar {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.chapter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(223, 161, 61, 0.45);
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(223, 161, 61, 0.15);
+}
+
+.pill-icon {
+  font-size: 1rem;
+}
+
+/* Main Two-Column Stage */
+.letter-stage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(30px, 4.5vw, 55px);
+  align-items: start;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: Header & Controls
+   ========================================================================== */
+.letter-left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+  animation: fadeInLeft 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: var(--rose-deep);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.eyebrow-tag .dash {
+  color: var(--champagne-gold);
+  font-weight: 900;
+}
+
+.main-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--deep-plum);
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+
+.main-headline em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--rose-bloom);
+  display: inline-block;
+  background: linear-gradient(135deg, #e84a78 0%, #b82352 60%, #dfa13d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline-sub {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: rgba(43, 14, 30, 0.82);
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+.header-flourish {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.flourish-icon {
+  font-size: 1.15rem;
+  color: var(--champagne-gold);
+}
+
+.flourish-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(223, 161, 61, 0.6), transparent);
+}
+
+/* Controls & Bookmarks Card */
+.letter-controls-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(223, 161, 61, 0.4);
+  border-radius: 24px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(223, 161, 61, 0.4);
+  padding-bottom: 10px;
+}
+
+.controls-label {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--gold-dark);
+}
+
+.page-indicator-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  background: rgba(232, 74, 120, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(232, 74, 120, 0.25);
+}
+
+.page-indicator-pill span {
+  font-family: var(--font-cinzel);
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--rose-deep);
+}
+
+.page-indicator-pill small {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--charcoal-ink);
+}
+
+/* Bookmarks Tabs */
+.bookmarks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bookmark-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid rgba(223, 161, 61, 0.25);
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+  font-family: var(--font-sans);
+}
+
+.bookmark-tab:hover {
+  background: var(--blush-pink);
+  border-color: var(--rose-bloom);
+  transform: translateX(4px);
+}
+
+.bookmark-tab.active {
+  background: linear-gradient(135deg, rgba(255, 240, 245, 0.95), rgba(255, 248, 238, 0.95));
+  border-color: var(--rose-bloom);
+  box-shadow: 0 4px 12px rgba(232, 74, 120, 0.15);
+}
+
+.tab-num {
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--gold-dark);
+  margin-right: 10px;
+}
+
+.tab-title {
+  flex: 1;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+}
+
+.tab-status {
+  font-size: 0.85rem;
+  color: rgba(223, 161, 61, 0.4);
+  transition: color 0.25s ease;
+}
+
+.bookmark-tab.active .tab-status {
+  color: var(--rose-bloom);
+}
+
+/* Progress Wrap */
+.reading-progress-wrap {
+  margin-top: 4px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(223, 161, 61, 0.15);
+  border-radius: 999px;
+  overflow: visible;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dfa13d 0%, #e84a78 100%);
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.progress-quill {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  filter: drop-shadow(0 0 3px #ffd166);
+}
+
+/* Action Buttons */
+.page-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(223, 161, 61, 0.35);
+  background: #ffffff;
+  color: var(--deep-plum);
+  transition: all 0.22s ease;
+  flex: 1;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--blush-pink);
+  border-color: var(--rose-bloom);
+  color: var(--rose-deep);
+  transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-next {
+  background: linear-gradient(135deg, #e84a78 0%, #b82352 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(232, 74, 120, 0.3);
+}
+
+.btn-next:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f05a87 0%, #c42959 100%);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(232, 74, 120, 0.4);
+}
+
+/* Left Keepsake Stamp */
+.left-keepsake-stamp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px dashed rgba(223, 161, 61, 0.45);
+  border-radius: 16px;
+  padding: 10px 18px;
+  width: fit-content;
+}
+
+.left-keepsake-stamp .stamp-icon {
+  font-size: 1.4rem;
+}
+
+.left-keepsake-stamp .stamp-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.stamp-name {
+  font-family: var(--font-cinzel);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--deep-plum);
+}
+
+.stamp-date {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.stamp-sig {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--rose-deep);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: The 3D Realistic Spiral Lined Notebook
+   ========================================================================== */
+.letter-right-panel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Notebook Wrapper */
+.notebook-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 680px;
+  perspective: 1800px;
+  margin-left: 20px;
+}
+
+/* Stacked Paper Depth Effect */
+.paper-stack-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--paper-back);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.paper-stack-edge.layer-3 {
+  transform: translate(10px, 10px);
+  box-shadow: 0 25px 60px rgba(43, 14, 30, 0.18), 0 0 35px rgba(223, 161, 61, 0.15);
+  border: 1px solid rgba(223, 161, 61, 0.2);
+}
+
+.paper-stack-edge.layer-2 {
+  transform: translate(6px, 6px);
+  background: #fdfaf2;
+  border: 1px solid rgba(223, 161, 61, 0.25);
+}
+
+.paper-stack-edge.layer-1 {
+  transform: translate(3px, 3px);
+  background: #fefcf6;
+  border: 1px solid rgba(223, 161, 61, 0.3);
+}
+
+/* Left Spiral Binding Wire Rings */
+.notebook-spine-wire {
+  position: absolute;
+  top: 25px;
+  left: -20px;
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.spiral-loop {
+  position: relative;
+  width: 36px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e8e8e8 0%, #ffffff 35%, #b5b5b5 70%, #686868 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transform: rotate(-10deg);
+}
+
+.spiral-hole {
+  position: absolute;
+  top: 50%;
+  right: -2px;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4a2130;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* 3D Book Container */
+.notebook-book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Individual 3D Book Sheet */
+.book-sheet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Sheet Stacking & Z-index Management */
+.sheet-1 { z-index: 5; }
+.sheet-2 { z-index: 4; }
+.sheet-3 { z-index: 3; }
+.sheet-4 { z-index: 2; }
+.sheet-5 { z-index: 1; }
+
+/* When Flipped (Turned to the Left) */
+.book-sheet.is-flipped {
+  transform: rotateY(-180deg);
+}
+
+.sheet-1.is-flipped { z-index: 6; }
+.sheet-2.is-flipped { z-index: 7; }
+.sheet-3.is-flipped { z-index: 8; }
+.sheet-4.is-flipped { z-index: 9; }
+.sheet-5.is-flipped { z-index: 10; }
+
+/* Sheet Faces (Front & Back) */
+.sheet-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background: var(--paper-cream);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  border: 1px solid rgba(223, 161, 61, 0.35);
+  box-shadow: inset 0 0 35px rgba(223, 161, 61, 0.08);
+}
+
+.sheet-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.sheet-back {
+  z-index: 1;
+  transform: rotateY(180deg);
+  background: var(--paper-warm);
+}
+
+/* Realistic Lined Notebook Lines */
+.page-paper-lines {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 56px);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 26px,
+    rgba(80, 130, 190, 0.28) 26px,
+    rgba(80, 130, 190, 0.28) 27.5px,
+    transparent 27.5px,
+    transparent 36px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Red Vertical Margin Line on Left */
+.page-margin-line {
+  position: absolute;
+  top: 0;
+  left: 58px;
+  width: 1.5px;
+  height: 100%;
+  background: var(--margin-red);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Spine Shadow Crease Effect */
+.page-spine-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(43, 14, 30, 0.16) 0%, rgba(43, 14, 30, 0.04) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.page-spine-shadow.right {
+  left: auto;
+  right: 0;
+  background: linear-gradient(-90deg, rgba(43, 14, 30, 0.16) 0%, rgba(43, 14, 30, 0.04) 60%, transparent 100%);
+}
+
+/* Watermark on Back of Page */
+.back-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-family: var(--font-cinzel);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(223, 161, 61, 0.15);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Dynamic Page Turning Shadow */
+.dynamic-page-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.85s ease;
+  z-index: 15;
+}
+
+.book-sheet.is-turning .dynamic-page-shadow {
+  opacity: 0.45;
+}
+
+/* ==========================================================================
+   Page Content & Typography (Synchronized Line-by-Line Baseline Grid)
+   ========================================================================== */
+.page-content {
+  position: relative;
+  z-index: 10;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Header row sits in the clean unruled top margin */
+.page-header-row {
+  height: 56px;
+  padding: 16px 28px 0 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(223, 161, 61, 0.22);
+  box-sizing: border-box;
+}
+
+.page-tag {
+  font-family: var(--font-cinzel);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--rose-deep);
+}
+
+.page-counter-stamp {
+  font-family: var(--font-cinzel);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--gold-dark);
+}
+
+/* Writing body starts directly at Y = 56px and locks onto the 36px lines */
+.page-ruled-body {
+  position: relative;
+  padding: 0 28px 0 76px;
+  box-sizing: border-box;
+}
+
+.page-salutation {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.page-chapter-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+}
+
+/* Blank ruled line between paragraphs */
+.rule-space {
+  height: 36px;
+  width: 100%;
+}
+
+/* Handwritten Paragraphs resting on the line */
+.page-ruled-body p {
+  font-family: var(--font-hand);
+  font-size: 1.44rem;
+  font-weight: 600;
+  line-height: 36px;
+  color: #2b1323;
+  margin: 0;
+  letter-spacing: 0.2px;
+  text-shadow: 0 0 0.5px rgba(43, 19, 35, 0.35);
+}
+
+/* Final Signoff on Page 5 */
+.final-signoff-block {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.signoff-blessing {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.signoff-closing {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #2b1323;
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.signoff-signature {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--rose-deep);
+  height: 36px;
+  line-height: 36px;
+  margin: 0;
+}
+
+/* Page 5 Gold Keepsake Seal */
+.page-gold-seal {
+  position: absolute;
+  bottom: 22px;
+  left: 76px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffd875 0%, #dfa13d 60%, #9c6515 100%);
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 6px 18px rgba(223, 161, 61, 0.45);
+  z-index: 12;
+}
+
+/* Footer Row */
+.page-footer-row {
+  position: absolute;
+  bottom: 12px;
+  left: 76px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(223, 161, 61, 0.3);
+  z-index: 12;
+  pointer-events: none;
+}
+
+.page-footer-hint {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  font-style: italic;
+}
+
+.page-number-label {
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--rose-deep);
+}
+
+/* ==========================================================================
+   Dog-Ear Page Curl Corner (Tactile Interactive Flip)
+   ========================================================================== */
+.page-curl-corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, transparent 50%, rgba(223, 161, 61, 0.25) 50%, rgba(255, 255, 255, 0.95) 53%, rgba(254, 219, 229, 0.9) 100%);
+  border: none;
+  cursor: pointer;
+  z-index: 25;
+  box-shadow: -4px -4px 10px rgba(0, 0, 0, 0.08);
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.page-curl-corner:hover {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, transparent 50%, rgba(232, 74, 120, 0.3) 50%, #ffffff 53%, #ffd4e2 100%);
+  box-shadow: -8px -8px 18px rgba(232, 74, 120, 0.25);
+}
+
+/* Transparent Trigger Zones for Easy Clicking */
+.page-turn-trigger {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.trigger-prev {
+  left: 0;
+}
+
+.trigger-next {
+  right: 0;
+}
+
+/* ==========================================================================
+   Floating Audio Control Dock
+   ========================================================================== */
+.floating-audio-dock {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 1000;
+}
+
+.sound-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(223, 161, 61, 0.45);
+  box-shadow: 0 8px 24px rgba(43, 14, 30, 0.15);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sound-pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(223, 161, 61, 0.3);
+  border-color: var(--rose-bloom);
+}
+
+.sound-pill-btn.muted {
+  opacity: 0.65;
+  filter: grayscale(0.7);
+}
+
+/* ==========================================================================
+   Toast Notification Banner
+   ========================================================================== */
+.letter-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: rgba(43, 14, 30, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid var(--champagne-gold);
+  border-radius: 999px;
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  z-index: 10001;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.letter-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .letter-stage {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .letter-left-panel {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .header-flourish {
+    justify-content: center;
+  }
+
+  .letter-controls-card {
+    width: 100%;
+  }
+
+  .notebook-wrapper {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .notebook-wrapper {
+    height: 640px;
+  }
+
+  .page-header-row {
+    height: 50px;
+    padding: 14px 20px 0 62px;
+  }
+
+  .page-paper-lines {
+    top: 50px;
+    height: calc(100% - 50px);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 23px,
+      rgba(80, 130, 190, 0.28) 23px,
+      rgba(80, 130, 190, 0.28) 24.5px,
+      transparent 24.5px,
+      transparent 32px
+    );
+  }
+
+  .page-margin-line {
+    left: 48px;
+  }
+
+  .page-ruled-body {
+    padding: 0 18px 0 62px;
+  }
+
+  .page-salutation {
+    font-size: 1.25rem;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .page-chapter-title {
+    font-size: 1.15rem;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .rule-space {
+    height: 32px;
+  }
+
+  .page-ruled-body p {
+    font-size: 1.24rem;
+    line-height: 32px;
+  }
+
+  .signoff-blessing,
+  .signoff-closing,
+  .signoff-signature {
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .spiral-loop {
+    width: 28px;
+    height: 14px;
+  }
+
+  .notebook-spine-wire {
+    left: -14px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fff5f8">
+  <meta name="description" content="Part 10 — A Birthday Love Letter for Aditi Soni. A realistic 5-page handwritten journal with smooth 3D page-turn physics.">
+  <title>Part 10 · A Birthday Love Letter for Aditi 📖 | For Aditi Soni</title>
+
+  <!-- Google Fonts: Luxury Serif, Romantic Script & Authentic Handwritten Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Rose Petals, Star Dust & Golden Sparkles Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main Section Wrapper -->
+  <section class="letter-section" id="birthday-letter" aria-label="Part 10: A Birthday Love Letter for Aditi">
+
+    <!-- Top Chapter Pill -->
+    <div class="top-chapter-bar">
+      <div class="chapter-pill">
+        <span class="pill-icon">📖</span>
+        <span>Part 10 · The Birthday Love Letter</span>
+      </div>
+    </div>
+
+    <!-- Main Two-Column Stage -->
+    <div class="letter-stage">
+
+      <!-- LEFT COLUMN: Romantic Header & Interactive Bookmark Navigation -->
+      <div class="letter-left-panel">
+        <div class="letter-heading-group">
+          <div class="eyebrow-tag">
+            <span class="dash">—</span>
+            <span>ONE LAST THING, BIRTHDAY GIRL</span>
+          </div>
+
+          <h1 class="main-headline" id="letter-title">
+            A little letter<br>
+            <em>just for you</em>
+          </h1>
+
+          <p class="headline-sub">
+            This part is for the quiet moment after all the confetti. Take a slow breath, curl up, and turn through these 5 pages written straight from my heart.
+          </p>
+
+          <div class="header-flourish" aria-hidden="true">
+            <span class="flourish-icon">✨</span>
+            <span class="flourish-line"></span>
+            <span class="flourish-icon">🖋️</span>
+            <span class="flourish-line"></span>
+            <span class="flourish-icon">💖</span>
+          </div>
+        </div>
+
+        <!-- Interactive Bookmarks & Page Controls Card -->
+        <div class="letter-controls-card">
+          <div class="controls-header">
+            <span class="controls-label">TABLE OF CONTENTS</span>
+            <div class="page-indicator-pill">
+              <span id="current-page-num">Page 1</span>
+              <small>/ 5</small>
+            </div>
+          </div>
+
+          <!-- 5 Clickable Bookmark Tabs -->
+          <nav class="bookmarks-list" aria-label="Book page navigation">
+            <button class="bookmark-tab active" data-page="1" type="button">
+              <span class="tab-num">01</span>
+              <span class="tab-title">The Quiet Moment</span>
+              <span class="tab-status">✦</span>
+            </button>
+            <button class="bookmark-tab" data-page="2" type="button">
+              <span class="tab-num">02</span>
+              <span class="tab-title">The Little Things</span>
+              <span class="tab-status">✦</span>
+            </button>
+            <button class="bookmark-tab" data-page="3" type="button">
+              <span class="tab-num">03</span>
+              <span class="tab-title">No Pressure, Just Love</span>
+              <span class="tab-status">✦</span>
+            </button>
+            <button class="bookmark-tab" data-page="4" type="button">
+              <span class="tab-num">04</span>
+              <span class="tab-title">Across Every Rebirth</span>
+              <span class="tab-status">✦</span>
+            </button>
+            <button class="bookmark-tab" data-page="5" type="button">
+              <span class="tab-num">05</span>
+              <span class="tab-title">My 17th Birthday Wish</span>
+              <span class="tab-status">✦</span>
+            </button>
+          </nav>
+
+          <!-- Reading Progress Bar -->
+          <div class="reading-progress-wrap">
+            <div class="progress-track" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" aria-label="Page reading progress">
+              <div class="progress-fill" id="reading-progress-fill" style="width: 20%;">
+                <span class="progress-quill">🖋️</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Navigation Buttons -->
+          <div class="page-action-row">
+            <button class="nav-btn btn-prev" id="btn-prev-page" type="button" aria-label="Previous page">
+              <span>← Prev Page</span>
+            </button>
+            <button class="nav-btn btn-auto" id="btn-auto-read" type="button" aria-label="Auto-turn pages gently">
+              <span class="auto-icon">⏳</span>
+              <span class="auto-text">Auto-Read</span>
+            </button>
+            <button class="nav-btn btn-next" id="btn-next-page" type="button" aria-label="Next page">
+              <span>Next Page →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Keepsake Postal Stamp -->
+        <div class="left-keepsake-stamp" aria-hidden="true">
+          <div class="stamp-icon">🎀</div>
+          <div class="stamp-details">
+            <span class="stamp-name">ADITI SONI · SWEET 17</span>
+            <span class="stamp-date">16 DEC 2009 · WRITTEN WITH CARE</span>
+            <small class="stamp-sig">yours spidy 🕸️❤️</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: The 3D Realistic Lined Spiral Notebook -->
+      <div class="letter-right-panel">
+        
+        <!-- 3D Book Stage Container -->
+        <div class="notebook-wrapper" id="notebook-wrapper">
+
+          <!-- Stacked Paper Depth Effect (Layers of pages underneath) -->
+          <div class="paper-stack-edge layer-3" aria-hidden="true"></div>
+          <div class="paper-stack-edge layer-2" aria-hidden="true"></div>
+          <div class="paper-stack-edge layer-1" aria-hidden="true"></div>
+
+          <!-- Spiral Binding Wire on the Left Edge -->
+          <div class="notebook-spine-wire" aria-hidden="true">
+            <div class="spiral-loop loop-1"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-2"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-3"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-4"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-5"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-6"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-7"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-8"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-9"><span class="spiral-hole"></span></div>
+            <div class="spiral-loop loop-10"><span class="spiral-hole"></span></div>
+          </div>
+
+          <!-- 3D Book Pages Flip Engine -->
+          <div class="notebook-book" id="notebook-book">
+
+            <!-- ================= SHEET 1 (PAGE 1) ================= -->
+            <div class="book-sheet sheet-1" id="sheet-1" data-sheet="1">
+              <div class="sheet-face sheet-front">
+                <div class="page-paper-lines" aria-hidden="true"></div>
+                <div class="page-margin-line" aria-hidden="true"></div>
+                <div class="page-spine-shadow" aria-hidden="true"></div>
+
+                <div class="page-content">
+                  <div class="page-header-row">
+                    <span class="page-tag">A NOTE FOR MY FAVORITE GIRL ✦</span>
+                    <span class="page-counter-stamp">PAGE 01 / 05</span>
+                  </div>
+
+                  <div class="page-ruled-body">
+                    <h2 class="page-salutation">Dear Aditi Soni,</h2>
+                    
+                    <p>Happy birthday, babyyygurlll. I hope this 17th year brings you every soft, silly, beautiful thing you deserve—and a million reasons to smile.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>This part is for the quiet moment after all the birthday confetti has settled, when the room is peaceful and you can just breathe. Your kindness shows up in the smallest things, and it makes everyone around you feel seen, safe, and valued.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>I love you in all the little ways and all the big ones: every second, minute, hour, day, week, month, year, this life—and whatever comes after. You’re the person I keep in my prayers every single day, and seeing your smile has a way of making my entire world glow.</p>
+                  </div>
+
+                  <div class="page-footer-row">
+                    <span class="page-footer-hint">Turn page for more ↷</span>
+                    <span class="page-number-label">1</span>
+                  </div>
+                </div>
+
+                <!-- Interactive Dog-Ear Page Curl Corner -->
+                <button class="page-curl-corner" id="curl-1" type="button" aria-label="Flip to Page 2" title="Click to flip page"></button>
+                <div class="dynamic-page-shadow" aria-hidden="true"></div>
+              </div>
+
+              <div class="sheet-face sheet-back" aria-hidden="true">
+                <div class="page-paper-lines"></div>
+                <div class="page-spine-shadow right"></div>
+                <div class="back-watermark">
+                  <span>✦ ADITI & SPIDY ✦</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SHEET 2 (PAGE 2) ================= -->
+            <div class="book-sheet sheet-2" id="sheet-2" data-sheet="2">
+              <div class="sheet-face sheet-front">
+                <div class="page-paper-lines" aria-hidden="true"></div>
+                <div class="page-margin-line" aria-hidden="true"></div>
+                <div class="page-spine-shadow" aria-hidden="true"></div>
+
+                <div class="page-content">
+                  <div class="page-header-row">
+                    <span class="page-tag">THE LITTLE THINGS I ADORE ✦</span>
+                    <span class="page-counter-stamp">PAGE 02 / 05</span>
+                  </div>
+
+                  <div class="page-ruled-body">
+                    <h3 class="page-chapter-title">The Magic in the Details</h3>
+                    
+                    <p>Do you know what my absolute favorite thing about you is? It’s not just how ridiculously gorgeous you are (though let’s be honest, you take my breath away every single day).</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>It’s the way you get dramatically shy when I shower you with compliments. It’s that cute little pout when you pretend you’re upset just so I pamper you more. It’s your tired, sleepy giggles at 3 AM that sound like the sweetest melody on earth.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>You have this rare, golden soul, Aditi. In a world that is always rushing and loud, talking to you feels like wrapping up in a warm blanket by the fire. You make ordinary days feel like poetry.</p>
+                  </div>
+
+                  <div class="page-footer-row">
+                    <span class="page-footer-hint">Turn page ↷</span>
+                    <span class="page-number-label">2</span>
+                  </div>
+                </div>
+
+                <button class="page-curl-corner" id="curl-2" type="button" aria-label="Flip to Page 3" title="Click to flip page"></button>
+                <div class="dynamic-page-shadow" aria-hidden="true"></div>
+              </div>
+
+              <div class="sheet-face sheet-back" aria-hidden="true">
+                <div class="page-paper-lines"></div>
+                <div class="page-spine-shadow right"></div>
+                <div class="back-watermark">
+                  <span>✦ 16 DECEMBER 2009 ✦</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SHEET 3 (PAGE 3) ================= -->
+            <div class="book-sheet sheet-3" id="sheet-3" data-sheet="3">
+              <div class="sheet-face sheet-front">
+                <div class="page-paper-lines" aria-hidden="true"></div>
+                <div class="page-margin-line" aria-hidden="true"></div>
+                <div class="page-spine-shadow" aria-hidden="true"></div>
+
+                <div class="page-content">
+                  <div class="page-header-row">
+                    <span class="page-tag">MY UNCONDITIONAL PROMISE ✦</span>
+                    <span class="page-counter-stamp">PAGE 03 / 05</span>
+                  </div>
+
+                  <div class="page-ruled-body">
+                    <h3 class="page-chapter-title">No Pressure, Only Endless Care</h3>
+                    
+                    <p>I want to remind you of something very important tonight: My love for you comes with zero pressure and zero expectations.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>You don’t have to be perfect. You don’t have to have your whole future figured out at 17, and you never have to pretend you’re strong when you feel overwhelmed. Your happiness, your comfort, and your peace are what truly matter to me.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>On your proudest days when you shine bright, I’ll be cheering the loudest. And on the heavy days when everything feels exhausting, I’ll sit beside you quietly and hold your hand. I am here for all of it, always.</p>
+                  </div>
+
+                  <div class="page-footer-row">
+                    <span class="page-footer-hint">Turn page ↷</span>
+                    <span class="page-number-label">3</span>
+                  </div>
+                </div>
+
+                <button class="page-curl-corner" id="curl-3" type="button" aria-label="Flip to Page 4" title="Click to flip page"></button>
+                <div class="dynamic-page-shadow" aria-hidden="true"></div>
+              </div>
+
+              <div class="sheet-face sheet-back" aria-hidden="true">
+                <div class="page-paper-lines"></div>
+                <div class="page-spine-shadow right"></div>
+                <div class="back-watermark">
+                  <span>✦ ALWAYS IN YOUR CORNER ✦</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SHEET 4 (PAGE 4) ================= -->
+            <div class="book-sheet sheet-4" id="sheet-4" data-sheet="4">
+              <div class="sheet-face sheet-front">
+                <div class="page-paper-lines" aria-hidden="true"></div>
+                <div class="page-margin-line" aria-hidden="true"></div>
+                <div class="page-spine-shadow" aria-hidden="true"></div>
+
+                <div class="page-content">
+                  <div class="page-header-row">
+                    <span class="page-tag">OUR STORY & THE FUTURE ✦</span>
+                    <span class="page-counter-stamp">PAGE 04 / 05</span>
+                  </div>
+
+                  <div class="page-ruled-body">
+                    <h3 class="page-chapter-title">Across Every Lifetime</h3>
+                    
+                    <p>They say some people are just brief visitors in our lives, but with you, Aditi, it felt like an ancient promise kept. Like my soul recognized yours from the very first moment.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>I look forward to every tomorrow with you. To the countless calls where we lose track of time, to the little road trips we still have to take, to celebrating every birthday and milestone hand-in-hand as we grow together.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>Through every season of this life—and in every rebirth after—I will still look for you, find you, and choose you without hesitation. You are my forever story.</p>
+                  </div>
+
+                  <div class="page-footer-row">
+                    <span class="page-footer-hint">Final page ↷</span>
+                    <span class="page-number-label">4</span>
+                  </div>
+                </div>
+
+                <button class="page-curl-corner" id="curl-4" type="button" aria-label="Flip to Page 5" title="Click to flip page"></button>
+                <div class="dynamic-page-shadow" aria-hidden="true"></div>
+              </div>
+
+              <div class="sheet-face sheet-back" aria-hidden="true">
+                <div class="page-paper-lines"></div>
+                <div class="page-spine-shadow right"></div>
+                <div class="back-watermark">
+                  <span>✦ ETERNAL VOW ✦</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= SHEET 5 (PAGE 5 - FINAL) ================= -->
+            <div class="book-sheet sheet-5" id="sheet-5" data-sheet="5">
+              <div class="sheet-face sheet-front">
+                <div class="page-paper-lines" aria-hidden="true"></div>
+                <div class="page-margin-line" aria-hidden="true"></div>
+                <div class="page-spine-shadow" aria-hidden="true"></div>
+
+                <div class="page-content">
+                  <div class="page-header-row">
+                    <span class="page-tag">SEALED WITH LOVE · SWEET 17 ✦</span>
+                    <span class="page-counter-stamp">PAGE 05 / 05</span>
+                  </div>
+
+                  <div class="page-ruled-body">
+                    <h3 class="page-chapter-title">My Birthday Wish for You</h3>
+                    
+                    <p>So here is my heartfelt wish for you today, my sweetest angel:</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <p>May you always know how deeply, completely, and fiercely you are cherished. May you never doubt your brilliance, your kindness, or the light you bring into this universe. Thank you for being born on this golden day in 2009.</p>
+                    
+                    <div class="rule-space"></div>
+
+                    <!-- Final Handwritten Sign-off Block on the Ruled Lines -->
+                    <div class="final-signoff-block">
+                      <p class="signoff-blessing">Happy 17th Birthday, my babyyygurlll! 👑💖</p>
+                      <p class="signoff-closing">With all my love,</p>
+                      <p class="signoff-signature">yours spidy 🕸️❤️</p>
+                    </div>
+                  </div>
+
+                  <div class="page-footer-row">
+                    <span class="page-footer-hint">You are loved forever ✨</span>
+                    <span class="page-number-label">5</span>
+                  </div>
+                </div>
+
+                <!-- Gold Keepsake Ribbon Stamp on Page 5 -->
+                <div class="page-gold-seal" aria-hidden="true">
+                  <span>💌</span>
+                </div>
+              </div>
+
+              <div class="sheet-face sheet-back" aria-hidden="true">
+                <div class="page-paper-lines"></div>
+                <div class="page-spine-shadow right"></div>
+                <div class="back-watermark">
+                  <span>✦ THE END OF THE LETTER · THE START OF FOREVER ✦</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /notebook-book -->
+
+          <!-- Bottom Click Zones for Easy Turning -->
+          <button class="page-turn-trigger trigger-prev" id="trigger-prev-area" type="button" aria-label="Flip backward"></button>
+          <button class="page-turn-trigger trigger-next" id="trigger-next-area" type="button" aria-label="Flip forward"></button>
+
+        </div><!-- /notebook-wrapper -->
+
+      </div><!-- /letter-right-panel -->
+
+    </div><!-- /letter-stage -->
+
+    <!-- Floating Audio Control Dock -->
+    <div class="floating-audio-dock">
+      <button class="sound-pill-btn" id="sound-btn" type="button" aria-label="Toggle page turn paper sound effects">
+        <span class="sound-icon">🎵</span>
+        <span class="sound-text">Sound Effects ON</span>
+      </button>
+    </div>
+
+  
+    <!-- Replay Journey from Part 1 Flow Bridge -->
+    <div class="part-flow-bridge" style="text-align: center; margin: 44px auto 20px; max-width: 650px; padding: 26px; background: rgba(255, 255, 255, 0.95); border: 1.5px solid rgba(223, 161, 61, 0.45); border-radius: 24px; box-shadow: 0 12px 32px rgba(43, 14, 30, 0.1);">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px; color: #b8781e; margin-bottom: 8px;">✦ JOURNEY COMPLETE · HAPPY 17TH BIRTHDAY ADITI ✦</div>
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #2b0e1e; margin: 0 0 8px;">Forever & Always Yours, Babyyygurlll 🕸️❤️</h3>
+      <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; color: #634356; margin: 0 0 18px; line-height: 1.5;">Thank you for walking through this journey with me. I love you more than words, numbers, or lifetimes can hold.</p>
+      <a class="part-flow-btn" href="../part 1/index.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 32px; border-radius: 999px; background: linear-gradient(135deg, #e84a78 0%, #b82352 60%, #dfa13d 100%); color: #ffffff !important; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.95rem; box-shadow: 0 8px 24px rgba(232, 74, 120, 0.4);">
+        <span>↺ Replay Aditi's 17th Birthday Journey from Part 01 💖</span>
+      </a>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
