@@ -493,3 +493,102 @@ html, body {
     height: 24px;
   }
 }
+
+/* Keep the scrapbook layout comfortable on phones and short screens. */
+@media (max-width: 600px) {
+  .stage-container {
+    min-height: 100svh;
+    justify-content: flex-start;
+    padding: max(28px, env(safe-area-inset-top)) 14px calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .stage-tag {
+    max-width: 100%;
+    margin-bottom: 18px;
+    padding: 8px 12px;
+    gap: 7px;
+    font-size: clamp(0.62rem, 2.6vw, 0.78rem);
+    letter-spacing: 0.1em;
+  }
+
+  .scrapbook-card {
+    max-width: 480px;
+    margin-bottom: 46px;
+    padding: 88px 18px 24px;
+    border-radius: 28px;
+  }
+
+  .postage-stamp {
+    top: 15px;
+    right: 18px;
+  }
+
+  .card-subtitle {
+    margin-top: 0;
+    font-size: 0.82rem;
+  }
+
+  .card-title {
+    font-size: clamp(1.45rem, 7vw, 1.7rem);
+  }
+
+  .speech-bubble {
+    padding: 14px;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+
+  .button-group:not(#group-unlock) .btn {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  .card-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 14px;
+    font-size: 0.72rem;
+  }
+
+  .part-flow-bridge {
+    width: 100%;
+    padding: 16px 14px !important;
+  }
+
+  .part-flow-bridge h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.3;
+  }
+
+  .part-flow-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px !important;
+    font-size: 0.84rem !important;
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .sound-toggle {
+    right: 0;
+    bottom: -40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .stage-container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .scrapbook-card {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .stage-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+}
