@@ -475,7 +475,7 @@
             <div class="tape-strip ${mem.tapeClass}" aria-hidden="true"></div>
             
             <div class="polaroid-photo-frame">
-              <img class="polaroid-img" src="${mem.imageSrc}" alt="${mem.title}" onerror="window.handlePolaroidFallback(this, ${mem.id})">
+              <img class="polaroid-img" src="${mem.imageSrc}" alt="${mem.title}" loading="lazy" decoding="async" onerror="window.handlePolaroidFallback(this, ${mem.id})">
               <div class="photo-fallback-art">
                 <!-- Fallback SVG populated if image fails -->
               </div>
@@ -649,7 +649,7 @@
     // Display photo with graceful fallback
     if (lightboxImgContainer) {
       lightboxImgContainer.innerHTML = `
-        <img class="lightbox-img" src="${mem.imageSrc}" alt="${mem.title}">
+        <img class="lightbox-img" src="${mem.imageSrc}" alt="${mem.title}" decoding="async">
       `;
       const img = lightboxImgContainer.querySelector('img');
       if (img) {
