@@ -432,20 +432,6 @@ body.night-mode .hint-text {
     font-size: clamp(1.35rem, 6vw, 1.65rem) !important;
   }
 
-  .floating-next-bridge {
-    right: 12px !important;
-    bottom: calc(12px + env(safe-area-inset-bottom)) !important;
-    max-width: calc(100vw - 24px);
-  }
-
-  .floating-next-bridge .part-flow-btn {
-    max-width: 100%;
-    justify-content: center;
-    text-align: center;
-    white-space: normal;
-    line-height: 1.35;
-    padding: 10px 14px !important;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
