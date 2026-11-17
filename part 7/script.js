@@ -695,7 +695,7 @@
      8. CELEBRATION PARTICLES & TOAST
      ========================================================================== */
   function spawnPetalsAt(x, y, count = 8) {
-    const icons = ['🌸', '💖', '✨', '📸', '💌', '💕', '⭐'];
+    const icons = ['🌸', '🌼', '✨', '📸', '💌', '⭐'];
 
     for (let i = 0; i < count; i++) {
       const p = document.createElement('div');
